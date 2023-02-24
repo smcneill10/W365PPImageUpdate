@@ -25,7 +25,7 @@ $ProvisionPolicysRaw = get-MgDeviceManagementVirtualEndpointprovisioningpolicy
 
 Write-Host ""
 Write-Host "Here are your existing Windows 365 Provisioning Policies"
-$provisionpolicysraw |ft -property Displayname,provisioningType,enablesinglesignon,Imagedisplayname
+$provisionpolicysraw |Format-Table -property Displayname,provisioningType,enablesinglesignon,Imagedisplayname
 $DemoPolicyFound = $False
 foreach ($PolicyRaw in $provisionPolicysRaw) 
     {
@@ -51,7 +51,7 @@ foreach ($PolicyRaw in $provisionPolicysRaw)
             $ProvisionPolicysRaw2 = get-MgDeviceManagementVirtualEndpointprovisioningpolicy
 
             Write-Host "Here are the updated Provisioning Policies"
-            $provisionpolicysraw2 |ft -property Displayname,provisioningType,enablesinglesignon,Imagedisplayname
+            $provisionpolicysraw2 |Format-Table -property Displayname,provisioningType,enablesinglesignon,Imagedisplayname
             }
         }
     }
@@ -64,4 +64,4 @@ If (-not $DemoPolicyFound)
 
 
 #TESTING
-
+#adding a comment
