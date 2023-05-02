@@ -17,7 +17,7 @@ $GalleryImagesRaw = Get-MgDeviceManagementVirtualEndpointGalleryImage
 
 # Will need to create logic to determine newest Image for Win 10 and 11 and both versions
 #This version just assumes location of latest versions is array
-$LatestW11OS = $GalleryImagesRaw[0]
+#$LatestW11OS = $GalleryImagesRaw[0]
 $LatestW11M365 = $GalleryImagesRaw[1]
 
 #Get Provisioning Policies
