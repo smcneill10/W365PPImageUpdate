@@ -22,7 +22,7 @@
             "name": "PowerShell Launch Script",
             "type": "PowerShell",
             "request": "launch",
-            "script": "${Worspaceroot}/testing.ps1",
+            "script": "Testing.ps1",
             "cwd": "${workspaceroot}"
         }
     ]
