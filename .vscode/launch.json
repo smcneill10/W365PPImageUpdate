@@ -22,7 +22,7 @@
             "name": "PowerShell Launch Script",
             "type": "PowerShell",
             "request": "launch",
-            "script": "${Worspaceroot}/W365PPImageUpdate/testing.ps1",
+            "script": "${Worspaceroot}/testing.ps1",
             "cwd": "${workspaceroot}"
         }
     ]
