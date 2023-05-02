@@ -1,10 +1,13 @@
 #write function to connect to azure active directory
+
+Write-host 1
+
 Connect-AzureAD
 function Connect-AzureAD {
     $AzureADConnection = Connect-AzureAD
     return $AzureADConnection
 }
-write-host "here her here"
+write-host 2
 #write function to get all users from azure active directory
 function Get-AzureADUser {
     $AzureADUser = Get-AzureADUser
