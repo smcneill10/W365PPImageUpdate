@@ -1,4 +1,5 @@
 #write function to connect to azure active directory
+Connect-AzureAD
 function Connect-AzureAD {
     $AzureADConnection = Connect-AzureAD
     return $AzureADConnection
