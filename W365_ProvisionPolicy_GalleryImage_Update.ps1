@@ -5,7 +5,7 @@
 
 # Set Graph API to Beta
 Select-MgProfile Beta
-
+Out-Host "here we are"
 #Connect to CloudPC Graph API 
 Connect-MgGraph -Scopes "CloudPC.ReadWrite.All" 
 
