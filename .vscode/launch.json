@@ -15,7 +15,7 @@
             "name": "PowerShell Launch Current File",
             "type": "PowerShell",
             "request": "launch",
-            "script":"${workspaceroot}\Testing.ps1",
+            "script":"${workspaceroot}Testing.ps1",
             "cwd": "${workspaceroot}"
         },
         {
