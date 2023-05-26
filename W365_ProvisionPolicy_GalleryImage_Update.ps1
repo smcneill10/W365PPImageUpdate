@@ -7,10 +7,15 @@
 Select-MgProfile Beta
 Out-Host "here we are"
 #Connect to CloudPC Graph API 
-Connect-MgGraph -Scopes "CloudPC.ReadWrite.All" 
 
 #TEST
 #get-mgcontext
+#export to json file
+
+Get-MgContext
+
+
+
 
 #Get Gallery Images
 $GalleryImagesRaw = Get-MgDeviceManagementVirtualEndpointGalleryImage
