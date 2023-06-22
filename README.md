@@ -7,3 +7,5 @@ Need to have PowerShell 7 or higher https://learn.microsoft.com/en-us/powershell
 
 Need to have the https://pedholtlab.com/get-started-with-windows-365-and-powershell/
 https://learn.microsoft.com/en-us/powershell/microsoftgraph/authentication-commands?view=graph-powershell-1.0
+
+Script also will allow for gathering info about a CPC and reboot, start and stop as well as get the latest connectivity info
