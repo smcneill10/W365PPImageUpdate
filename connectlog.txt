@@ -1,0 +1,26 @@
+
+EventDateTime         EventName             EventResult EventType         Message
+-------------         ---------             ----------- ---------         -------
+6/22/2023 4:14:53 PM  DomainJoinedCheck     success     deviceHealthCheck 
+6/22/2023 4:14:53 PM  DomainTrustCheck      success     deviceHealthCheck 
+6/22/2023 4:14:53 PM  SxSStackListenerCheck success     deviceHealthCheck 
+6/22/2023 4:14:53 PM  MonitoringAgentCheck  success     deviceHealthCheck 
+6/22/2023 4:14:53 PM  MetaDataServiceCheck  success     deviceHealthCheck 
+6/22/2023 4:14:53 PM  AppAttachHealthCheck  success     deviceHealthCheck 
+6/21/2023 9:39:03 PM  Connection Finished   success     userConnection    
+6/19/2023 8:17:40 PM  Connection Started    success     userConnection    
+6/19/2023 6:56:55 PM  Connection Finished   success     userConnection    
+6/19/2023 6:10:39 PM  Connection Started    success     userConnection    
+6/18/2023 12:13:23 AM Connection Finished   success     userConnection    
+6/17/2023 11:50:28 PM Connection Started    success     userConnection    
+6/17/2023 11:47:17 PM Connection Finished   success     userConnection    
+6/17/2023 11:43:55 PM Connection Started    success     userConnection    
+6/16/2023 2:09:52 AM  Connection Finished   success     userConnection    
+6/14/2023 12:36:07 AM Connection Started    success     userConnection    
+6/8/2023 4:59:30 PM   DomainJoinedCheck     success     deviceHealthCheck 
+6/8/2023 4:59:30 PM   DomainTrustCheck      success     deviceHealthCheck 
+6/8/2023 4:59:30 PM   SxSStackListenerCheck success     deviceHealthCheck 
+6/8/2023 4:59:30 PM   MonitoringAgentCheck  success     deviceHealthCheck 
+6/8/2023 4:59:30 PM   MetaDataServiceCheck  success     deviceHealthCheck 
+6/8/2023 4:59:30 PM   AppAttachHealthCheck  success     deviceHealthCheck 
+

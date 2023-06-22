@@ -73,7 +73,8 @@ Function Get-CloudPCData
     3 {Get-CloudPCData}
     4 {write-host 'Connectivity test for '$CPCs[$choosenCPC].DisplayName }
     4 {write-host ""}
-    4 {Get-MgDeviceManagementVirtualEndpointCloudPcConnectivityHistory -CloudPcId $CPCs[$choosenCPC].Id }
+    4 {Get-MgDeviceManagementVirtualEndpointCloudPcConnectivityHistory  -CloudPcId $CPCs[$choosenCPC].Id |out-file -filepath .\connectlog.txt }
+    4 { get-content -path .\connectlog.txt}
     4 {Get-CloudPCData}
     5 {Clear-host}
     5 {Get-CloudPCData}
