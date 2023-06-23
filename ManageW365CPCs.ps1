@@ -33,7 +33,7 @@ Function Get-CloudPCData
     Write-Host ""
   
     [int]$Selection1 = Read-Host "enter number for more info and to Manage a CPC "
-    If ($Selection1 -eq 0) {Break}
+    If ($Selection1 -eq 0) {Write-Host "Thanks and See Ya"; Break}
     If ($Selection1 -gt $counter) {Write-host ""; Write-host "Out of band selection, please select again" -backgroundcolor Red; Get-CloudPCData}
     $choosenCPC = $selection1 -1
     Write-host ""
@@ -76,7 +76,7 @@ Function Get-CloudPCData
     4 {write-host ""}
     4 {Get-MgDeviceManagementVirtualEndpointCloudPcConnectivityHistory  -CloudPcId $CPCs[$choosenCPC].Id |out-file -filepath .\connectlog.txt }
     4 {$ConnectHistory = Get-Item .\connectlog.txt}
-    4 {if ($ConnectHistory.Length -gt 1) {get-content -path .\connectlog.txt} Else {Write-host "No connection history available"}}
+    4 {if ($ConnectHistory.Length -gt 1) {get-content -path .\connectlog.txt} Else {Write-host "" -backgroundcolor Red; Write-host "No connection history available" -backgroundcolor Red}}
     4 {Get-CloudPCData}
     5 {Clear-host}
     5 {Get-CloudPCData}
