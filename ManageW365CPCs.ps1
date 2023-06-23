@@ -34,11 +34,12 @@ Function Get-CloudPCData
   
     [int]$Selection1 = Read-Host "enter number for more info and to Manage a CPC "
     If ($Selection1 -eq 0) {Break}
+    If ($Selection1 -gt $counter) {Write-host ""; Write-host "Out of band selection, please select again" -backgroundcolor Red; Get-CloudPCData}
     $choosenCPC = $selection1 -1
     Write-host ""
     Write-host $choosenCPC
     $FGColor = "white"
-    $BKColor = "red"
+    $BKColor = "Green"
 
     #   Write-Host "Select" $Counter "to manage this Cloud PC Management"  -ForegroundColor $FGColor 
         Write-Host "" -BackgroundColor $BKColor
