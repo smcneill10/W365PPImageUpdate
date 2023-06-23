@@ -77,6 +77,9 @@ Function Get-CloudPCData
     4 {Get-MgDeviceManagementVirtualEndpointCloudPcConnectivityHistory  -CloudPcId $CPCs[$choosenCPC].Id |out-file -filepath .\connectlog.txt }
     4 {$ConnectHistory = Get-Item .\connectlog.txt}
     4 {if ($ConnectHistory.Length -gt 1) {get-content -path .\connectlog.txt} Else {Write-host "" -backgroundcolor Red; Write-host "No connection history available" -backgroundcolor Red}}
+    4 {[int]$exportConHis = Read-Host "Enter 1 to Export; 2 to Continue"}
+    4 {if ($exportConHis -eq 1) {$SaveHistoryPath = read-host "enter location for file export (user must have access, c:\location\filename.txt)"; Get-MgDeviceManagementVirtualEndpointCloudPcConnectivityHistory  -CloudPcId $CPCs[$choosenCPC].Id |out-file -filepath $SaveHistoryPath }; Write-host ""; Write-host "File exported as" $savehistorypath}; Else {Get-cloudpcData}
+    4 {}
     4 {Get-CloudPCData}
     5 {Clear-host}
     5 {Get-CloudPCData}
