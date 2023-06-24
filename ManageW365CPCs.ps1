@@ -5,10 +5,9 @@
 
 #MS Graph API permissions for Cloud PCs https://learn.microsoft.com/en-us/graph/permissions-reference#cloud-pc-permissions
 
+#Function to gather CPC info and allow for mgmt
 Function Get-CloudPCData  
     {
-    write-host ""
-    write-host ""
     write-host ""
     $CPCs = Get-MgDeviceManagementVirtualEndpointCloudPc -Property DisplayName, UserPrincipalName, ManagedDeviceName, ID, Status, ProvisioningPolicyId, ProvisioningPolicyName, ImageDisplayName, ServicePlanName, PowerState
 
@@ -72,14 +71,8 @@ Function Get-CloudPCData
     3 { Restart-MgDeviceManagementVirtualEndpointCloudPc -CloudPcId $CPCs[$choosenCPC].Id }
     3 {write-host 'Re-Starting ' $CPCs[$choosenCPC].DisplayName}
     3 {Get-CloudPCData}
-    4 {write-host 'Connectivity test for '$CPCs[$choosenCPC].DisplayName }
-    4 {write-host ""}
-    4 {Get-MgDeviceManagementVirtualEndpointCloudPcConnectivityHistory  -CloudPcId $CPCs[$choosenCPC].Id |out-file -filepath .\connectlog.txt }
-    4 {$ConnectHistory = Get-Item .\connectlog.txt}
-    4 {if ($ConnectHistory.Length -gt 1) {get-content -path .\connectlog.txt} Else {Write-host "" -backgroundcolor Red; Write-host "No connection history available" -backgroundcolor Red}}
-    4 {[int]$exportConHis = Read-Host "Enter 1 to Export; 2 to Continue"}
-    4 {if ($exportConHis -eq 1) {$SaveHistoryPath = read-host "enter location for file export (user must have access, c:\location\filename.txt)"; Get-MgDeviceManagementVirtualEndpointCloudPcConnectivityHistory  -CloudPcId $CPCs[$choosenCPC].Id |out-file -filepath $SaveHistoryPath }; Write-host ""; Write-host "File exported as" $savehistorypath}; Else {Get-cloudpcData}
-    4 {}
+    4 {Get-CPCConnectHistory $CPCs[$choosenCPC].DisplayName $CPCs[$choosenCPC].Id}
+    #4 {Clear-Host}
     4 {Get-CloudPCData}
     5 {Clear-host}
     5 {Get-CloudPCData}
@@ -89,7 +82,36 @@ Function Get-CloudPCData
     }
 }
 
-
+#Function for getting the Connectivity History
+Function Get-CPCConnectHistory ($CPCCHDisplay, $CPCCHID)
+{
+    write-host 'Connectivity test for ' $CPCCHDisplay 
+    write-host "Help me I'm stuck"
+    Get-MgDeviceManagementVirtualEndpointCloudPcConnectivityHistory  -CloudPcId $CPCCHID |out-file -filepath .\connectlog.txt 
+    $ConnectHistory = Get-Item .\connectlog.txt
+    if ($ConnectHistory.Length -gt 1) 
+        {
+            get-content -path .\connectlog.txt
+        }
+    Else
+        {
+            Write-host "" -backgroundcolor Red; Write-host "No connection history available" -backgroundcolor Red
+        }
+    
+    [int]$exportConHis = Read-Host "Enter 1 to Export; 2 to Continue"
+    if ($exportConHis -eq 1) 
+        {
+            $SaveHistoryPath = read-host "enter location for file export (user must have access, c:\location\filename.txt)"
+            Get-MgDeviceManagementVirtualEndpointCloudPcConnectivityHistory  -CloudPcId $CPCCHID |out-file -filepath $SaveHistoryPath 
+            Write-host ""
+            Write-host "File exported as" $savehistorypath
+        } 
+    Else 
+        {
+            Get-cloudpcData
+        }
+     
+}
 #Connect to CloudPC Graph API 
 Connect-MgGraph -Scopes "CloudPC.ReadWrite.All, User.Read.All","Group.Read.All, CloudPC.read.all"
 # Set Graph API to Beta
