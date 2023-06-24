@@ -94,11 +94,10 @@ Function Get-CloudPCData
 Connect-MgGraph -Scopes "CloudPC.ReadWrite.All, User.Read.All","Group.Read.All, CloudPC.read.all"
 # Set Graph API to Beta
 Select-MgProfile Beta
+
+#Gathers the connection info, comment out the Clear-Host line below to see this info, helps with connectivity issues
 Get-MgContext
 Clear-Host
-#Write-Host "Here are your existing Windows 365 Cloud PCs"
-#$CPC1s =Get-MgDeviceManagementVirtualEndpointCloudPC -Filter "Startswith(ServicePlanName,'Cloud PC Frontline')" -Property "id,powerstate,displayName" |fl Displayname, powerstate, ID
-#$CPC1s |Format-List -property Id,UserPrincipalName,ManagedDeviceName, ProvisioningPolicyName, Powerstate
 
 
 #Get Gallery Images
