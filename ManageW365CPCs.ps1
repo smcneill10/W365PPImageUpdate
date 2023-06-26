@@ -111,10 +111,10 @@ Function Get-CPCConnectHistory ($CPCCHDisplay, $CPCCHID)
     if ($exportConHis -eq 1) 
         {
             $SaveHistoryPath = read-host "enter location for file export (user must have access, c:\location\filename.txt)"
-            $Connectionhistoryexport = get-item .\connectlogclean.txt
+            $Connectionhistoryexport = get-content .\connectlogclean.txt
             Write-host ""
             Write-host " i am herre"
-            #$Connectionhistoryexport | Out-File -FilePath $SaveHistoryPath
+            $Connectionhistoryexport | Out-File -FilePath $SaveHistoryPath
             $connectionhistoryexport
             Write-host "File exported as" $savehistorypath
         } 
