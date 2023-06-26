@@ -1,0 +1,20 @@
+
+EventDateTime         EventName                        EventResult EventType         Message
+-------------         ---------                        ----------- ---------         -------
+6/25/2023 11:34:04 PM ConnectionFailedClientDisconnect failure     userConnection    The user's network connection to their Cloud PC was une…
+6/25/2023 12:13:37 AM Connection Started               success     userConnection    
+6/23/2023 2:11:57 PM  Connection Finished              success     userConnection    
+6/23/2023 2:14:09 AM  Connection Started               success     userConnection    
+6/22/2023 9:48:30 PM  Connection Finished              success     userConnection    
+6/21/2023 9:39:03 PM  Connection Finished              success     userConnection    
+6/21/2023 9:38:58 PM  Connection Started               success     userConnection    
+6/19/2023 8:17:40 PM  Connection Started               success     userConnection    
+6/19/2023 6:56:55 PM  Connection Finished              success     userConnection    
+6/19/2023 6:10:39 PM  Connection Started               success     userConnection    
+6/18/2023 12:13:23 AM Connection Finished              success     userConnection    
+6/17/2023 11:50:28 PM Connection Started               success     userConnection    
+6/17/2023 11:47:17 PM Connection Finished              success     userConnection    
+6/17/2023 11:43:55 PM Connection Started               success     userConnection    
+6/16/2023 2:09:52 AM  Connection Finished              success     userConnection    
+6/14/2023 12:36:07 AM Connection Started               success     userConnection    
+
