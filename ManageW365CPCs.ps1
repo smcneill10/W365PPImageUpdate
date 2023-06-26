@@ -35,8 +35,7 @@ Function Get-CloudPCData
     If ($Selection1 -eq 0) {Write-Host "Thanks and See Ya"; Break}
     If ($Selection1 -gt $counter) {Write-host ""; Write-host "Out of band selection, please select again" -backgroundcolor Red; Get-CloudPCData}
     $choosenCPC = $selection1 -1
-    Write-host ""
-    Write-host $choosenCPC
+
     $FGColor = "white"
     $BKColor = "Green"
 
@@ -78,7 +77,7 @@ Function Get-CloudPCData
     5 {Get-CloudPCData}
     6 {Write-Host 'See Ya'}
     6 {break}
-    Default { ‘unable to determine value of entered’ }
+    Default {Get-CloudPCData }
     }
 }
 

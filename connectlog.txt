@@ -1,12 +1,18 @@
 
 EventDateTime         EventName                           EventResult EventType         Message
 -------------         ---------                           ----------- ---------         -------
-6/26/2023 12:44:33 AM DomainJoinedCheck                   success     deviceHealthCheck 
-6/26/2023 12:44:33 AM DomainTrustCheck                    success     deviceHealthCheck 
-6/26/2023 12:44:33 AM SxSStackListenerCheck               success     deviceHealthCheck 
-6/26/2023 12:44:33 AM MonitoringAgentCheck                success     deviceHealthCheck 
-6/26/2023 12:44:33 AM MetaDataServiceCheck                success     deviceHealthCheck 
-6/26/2023 12:44:33 AM AppAttachHealthCheck                success     deviceHealthCheck 
+6/26/2023 11:10:34 PM DomainJoinedCheck                   success     deviceHealthCheck 
+6/26/2023 11:10:34 PM DomainTrustCheck                    success     deviceHealthCheck 
+6/26/2023 11:10:34 PM SxSStackListenerCheck               success     deviceHealthCheck 
+6/26/2023 11:10:34 PM MonitoringAgentCheck                success     deviceHealthCheck 
+6/26/2023 11:10:34 PM MetaDataServiceCheck                success     deviceHealthCheck 
+6/26/2023 11:10:34 PM AppAttachHealthCheck                success     deviceHealthCheck 
+6/26/2023 12:02:12 PM Unknown Error                       failure     userConnection    
+6/26/2023 12:02:10 PM Connection Started                  success     userConnection    
+6/26/2023 12:01:59 PM Unknown Error                       failure     userConnection    
+6/26/2023 12:01:56 PM Connection Started                  success     userConnection    
+6/26/2023 12:01:42 PM Unknown Error                       failure     userConnection    
+6/26/2023 12:01:40 PM Connection Started                  success     userConnection    
 6/26/2023 12:12:59 AM DomainJoinedCheck                   success     deviceHealthCheck 
 6/26/2023 12:12:59 AM DomainTrustCheck                    success     deviceHealthCheck 
 6/26/2023 12:12:59 AM SxSStackListenerCheck               success     deviceHealthCheck 
@@ -211,10 +217,10 @@ EventDateTime         EventName                           EventResult EventType 
 6/15/2023 8:24:08 PM  Connection Started                  success     userConnection    
 6/15/2023 8:24:06 PM  Connection Finished                 success     userConnection    
 6/14/2023 12:36:02 AM Connection Started                  success     userConnection    
-6/12/2023 1:21:59 AM  DomainJoinedCheck                   success     deviceHealthCheck 
-6/12/2023 1:21:59 AM  DomainTrustCheck                    success     deviceHealthCheck 
-6/12/2023 1:21:59 AM  SxSStackListenerCheck               success     deviceHealthCheck 
-6/12/2023 1:21:59 AM  MonitoringAgentCheck                success     deviceHealthCheck 
-6/12/2023 1:21:59 AM  MetaDataServiceCheck                success     deviceHealthCheck 
-6/12/2023 1:21:59 AM  AppAttachHealthCheck                success     deviceHealthCheck 
+6/12/2023 11:23:34 PM DomainJoinedCheck                   success     deviceHealthCheck 
+6/12/2023 11:23:34 PM DomainTrustCheck                    success     deviceHealthCheck 
+6/12/2023 11:23:34 PM SxSStackListenerCheck               success     deviceHealthCheck 
+6/12/2023 11:23:34 PM MonitoringAgentCheck                success     deviceHealthCheck 
+6/12/2023 11:23:34 PM MetaDataServiceCheck                success     deviceHealthCheck 
+6/12/2023 11:23:34 PM AppAttachHealthCheck                success     deviceHealthCheck 
 

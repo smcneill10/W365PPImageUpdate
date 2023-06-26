@@ -1,6 +1,12 @@
 
 EventDateTime         EventName                           EventResult EventType         Message
 -------------         ---------                           ----------- ---------         -------
+6/26/2023 12:02:12 PM Unknown Error                       failure     userConnection    
+6/26/2023 12:02:10 PM Connection Started                  success     userConnection    
+6/26/2023 12:01:59 PM Unknown Error                       failure     userConnection    
+6/26/2023 12:01:56 PM Connection Started                  success     userConnection    
+6/26/2023 12:01:42 PM Unknown Error                       failure     userConnection    
+6/26/2023 12:01:40 PM Connection Started                  success     userConnection    
 6/25/2023 11:33:40 PM ConnectionFailedClientDisconnect    failure     userConnection    The user's network connection to their Cloud PC was …
 6/25/2023 12:14:00 AM Connection Started                  success     userConnection    
 6/25/2023 12:13:55 AM ConnectionInitiationSequenceTimeout failure     userConnection    The user connection to their Cloud PC failed due to …
