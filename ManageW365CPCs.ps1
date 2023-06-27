@@ -31,7 +31,7 @@ Function Get-CloudPCData
     Write-host "Select 0 to exit" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
     Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
   
-    [int]$Selection1 = Read-Host "enter number for more info and to Manage a CPC " -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
+    [int]$Selection1 = Read-Host "enter number for more info and to Manage a CPC " 
     If ($Selection1 -eq 0) {Write-Host "Thanks and See Ya" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor; Break} 
     If ($Selection1 -gt $counter) {Write-host ""; Write-host "Out of band selection, please select again" -ForegroundColor $FGColor -backgroundcolor $BKColorBad; Get-CloudPCData}
     $choosenCPC = $selection1 -1

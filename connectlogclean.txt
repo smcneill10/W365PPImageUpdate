@@ -1,22 +1,38 @@
 
 EventDateTime         EventName                           EventResult EventType         Message
 -------------         ---------                           ----------- ---------         -------
-6/27/2023 1:39:40 PM  Unknown Error                       failure     userConnection    
-6/27/2023 1:39:39 PM  Connection Started                  success     userConnection    
-6/27/2023 7:06:25 AM  ServerReboot                        failure     userConnection    Connection closed due to server reboot.
-6/27/2023 1:20:11 AM  Connection Finished                 success     userConnection    
-6/27/2023 1:20:06 AM  Connection Started                  success     userConnection    
-6/27/2023 1:17:32 AM  Connection Started                  success     userConnection    
-6/27/2023 12:06:52 AM Connection Finished                 success     userConnection    
-6/27/2023 12:06:30 AM ConnectionFailedClientDisconnect    failure     userConnection    The user's network connection to their Cloud PC was unexpectedly interrupted.
-6/27/2023 12:06:30 AM ConnectionBroken                    failure     userConnection    Client network connection to the Windows Virtual Desktop service was lost
-6/27/2023 12:06:16 AM Connection Started                  success     userConnection    
-6/27/2023 12:01:59 AM Connection Started                  success     userConnection    
-6/26/2023 11:45:31 PM ConnectionFailedClientDisconnect    failure     userConnection    The user's network connection to their Cloud PC was unexpectedly interrupted.
-6/26/2023 11:45:31 PM ConnectionBroken                    failure     userConnection    Client network connection to the Windows Virtual Desktop service was lost
-6/26/2023 11:10:05 PM Connection Finished                 success     userConnection    
-6/26/2023 11:09:59 PM Connection Started                  success     userConnection    
-6/26/2023 11:09:37 PM Connection Started                  success     userConnection    
-6/26/2023 11:05:50 PM ConnectionInitiationSequenceTimeout failure     userConnection    The user connection to their Cloud PC failed due to a timeout waiting for the connection initiation sequence to complete. This may …
-6/26/2023 11:04:16 PM Connection Started                  success     userConnection    
+6/26/2023 12:02:12 PM Unknown Error                       failure     userConnection    
+6/26/2023 12:02:10 PM Connection Started                  success     userConnection    
+6/26/2023 12:01:59 PM Unknown Error                       failure     userConnection    
+6/26/2023 12:01:56 PM Connection Started                  success     userConnection    
+6/26/2023 12:01:42 PM Unknown Error                       failure     userConnection    
+6/26/2023 12:01:40 PM Connection Started                  success     userConnection    
+6/25/2023 11:33:40 PM ConnectionFailedClientDisconnect    failure     userConnection    The user's network connection to their Cloud PC was unexpectedly interrupted.
+6/25/2023 12:14:00 AM Connection Started                  success     userConnection    
+6/25/2023 12:13:55 AM ConnectionInitiationSequenceTimeout failure     userConnection    The user connection to their Cloud PC failed due to a timeout waiting for the connection initiation sequence to complete. This may …
+6/25/2023 12:12:22 AM Connection Started                  success     userConnection    
+6/24/2023 2:47:57 AM  ConnectionFailedClientDisconnect    failure     userConnection    The user's network connection to their Cloud PC was unexpectedly interrupted.
+6/23/2023 2:25:36 PM  Connection Started                  success     userConnection    
+6/22/2023 11:25:07 PM ConnectionFailedClientDisconnect    failure     userConnection    The user's network connection to their Cloud PC was unexpectedly interrupted.
+6/22/2023 3:39:19 AM  Connection Started                  success     userConnection    
+6/21/2023 11:11:39 PM ConnectionFailedClientDisconnect    failure     userConnection    The user's network connection to their Cloud PC was unexpectedly interrupted.
+6/21/2023 9:39:30 PM  Connection Started                  success     userConnection    
+6/20/2023 9:37:16 PM  Connection Finished                 success     userConnection    
+6/20/2023 4:20:33 PM  Connection Started                  success     userConnection    
+6/19/2023 8:18:05 PM  Connection Finished                 success     userConnection    
+6/19/2023 8:02:59 PM  Connection Started                  success     userConnection    
+6/19/2023 6:18:17 PM  Connection Finished                 success     userConnection    
+6/19/2023 6:08:28 PM  Connection Started                  success     userConnection    
+6/17/2023 11:30:05 PM Connection Finished                 success     userConnection    
+6/17/2023 11:29:27 PM Connection Started                  success     userConnection    
+6/16/2023 10:28:47 PM Connection Finished                 success     userConnection    
+6/16/2023 10:28:23 PM Connection Started                  success     userConnection    
+6/16/2023 12:33:20 AM Connection Finished                 success     userConnection    
+6/15/2023 11:40:57 PM Connection Started                  success     userConnection    
+6/15/2023 11:24:47 PM ServerShutdown                      failure     userConnection    Connection closed due to server shutdown.
+6/15/2023 10:46:21 PM Connection Started                  success     userConnection    
+6/15/2023 10:41:13 PM ServerShutdown                      failure     userConnection    Connection closed due to server shutdown.
+6/15/2023 8:24:08 PM  Connection Started                  success     userConnection    
+6/15/2023 8:24:06 PM  Connection Finished                 success     userConnection    
+6/14/2023 12:36:02 AM Connection Started                  success     userConnection    
 
