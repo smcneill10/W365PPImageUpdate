@@ -178,10 +178,10 @@ Function Get-ProvisionPolicyInfo
 
 #Display Preferences
 $FGColor = "white"
-$BKColor = "Blue"
+$BKColor = "Black"
 $BKColorBad = "Red"
 $BKColorGood = "Green"
-$BKColorinfo = "Blue"
+$BKColorinfo = "black"
 
 #Connect to CloudPC Graph API 
 Connect-MgGraph -Scopes "CloudPC.ReadWrite.All, User.Read.All","Group.Read.All, CloudPC.read.all"
