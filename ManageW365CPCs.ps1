@@ -8,7 +8,7 @@
 #Function to gather CPC info and allow for mgmt
 Function Get-CloudPCData  
     {
-    write-host ""
+    write-host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
     $CPCs = Get-MgDeviceManagementVirtualEndpointCloudPc -Property DisplayName, UserPrincipalName, ManagedDeviceName, ID, Status, ProvisioningPolicyId, ProvisioningPolicyName, ImageDisplayName, ServicePlanName, PowerState
 
     $Counter = 0
@@ -20,27 +20,27 @@ Function Get-CloudPCData
             {
                 $runningStatus = $CPC.Powerstate
 
-                Write-Host "Select" $Counter "for" $CPC.ManagedDeviceName "    " $runningStatus
+                Write-Host "Select" $Counter "for" $CPC.ManagedDeviceName "    " $runningStatus -BackgroundColor $BKColorInfo
             }
         Else
             {
-                write-Host "Select" $Counter "for" $CPC.ManagedDeviceName 
+                write-Host "Select" $Counter "for" $CPC.ManagedDeviceName  -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
             }
     }
   
-    Write-host "Select 0 to exit"
-    Write-Host ""
+    Write-host "Select 0 to exit" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
+    Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
   
-    [int]$Selection1 = Read-Host "enter number for more info and to Manage a CPC "
-    If ($Selection1 -eq 0) {Write-Host "Thanks and See Ya"; Break}
-    If ($Selection1 -gt $counter) {Write-host ""; Write-host "Out of band selection, please select again" -backgroundcolor Red; Get-CloudPCData}
+    [int]$Selection1 = Read-Host "enter number for more info and to Manage a CPC " -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
+    If ($Selection1 -eq 0) {Write-Host "Thanks and See Ya" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor; Break} 
+    If ($Selection1 -gt $counter) {Write-host ""; Write-host "Out of band selection, please select again" -ForegroundColor $FGColor -backgroundcolor $BKColorBad; Get-CloudPCData}
     $choosenCPC = $selection1 -1
 
     #$FGColor = "white"
     #$BKColor = "Green"
 
     #   Write-Host "Select" $Counter "to manage this Cloud PC Management"  -ForegroundColor $FGColor 
-        Write-Host "" -BackgroundColor $BKColor
+        Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
         Write-Host "Cloud PC Display Name:" $CPCs[$choosenCPC].DisplayName -ForegroundColor $FGColor -BackgroundColor $BKColor
         Write-Host "Cloud PC User Name:" $CPCs[$choosenCPC].UserPrincipalName -ForegroundColor $FGColor -BackgroundColor $BKColor
         write-host "CLoud PC NETBIOS Name:" $CPCs[$choosenCPC].ManagedDeviceName -ForegroundColor $FGColor -BackgroundColor $BKColor
@@ -52,7 +52,7 @@ Function Get-CloudPCData
         Write-Host "Cloud PC Sevice Plan Name:"$CPCs[$choosenCPC].ServicePlanName -ForegroundColor $FGColor -BackgroundColor $BKColor
         If ($null -ne $CPCs[$choosenCPC].PowerState )
         {Write-Host "Cloud PC Power State:"$CPCs[$choosenCPC].PowerState -ForegroundColor $FGColor -BackgroundColor $BKColor}
-        Write-Host ""
+        Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
 
 
     # https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.devicemanagement.actions/restart-mgdevicemanagementvirtualendpointcloudpc?view=graph-powershell-beta
@@ -138,8 +138,8 @@ Function Get-ProvisionPolicyInfo
     #Get Provisioning Policies
     $ProvisionPolicysRaw = get-MgDeviceManagementVirtualEndpointprovisioningpolicy
 
-    Write-Host ""
-    Write-Host "Here are your existing Windows 365 Provisioning Policies"
+    Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
+    Write-Host "Here are your existing Windows 365 Provisioning Policies" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
     $provisionpolicysraw |Format-Table -property Displayname,provisioningType,enablesinglesignon,Imagedisplayname
     $DemoPolicyFound = $False
     foreach ($PolicyRaw in $provisionPolicysRaw) 
@@ -151,21 +151,20 @@ Function Get-ProvisionPolicyInfo
             If ($LatestPolicy.ImageID -eq $LatestW11M365.Id)
                 {
                 
-                Write-Host "Latest Gallery Image in use for"$LatestPolicy.DisplayName"="$LatestW11M365.DisplayName
-                Write-Host
-                Write-Host "No chages made" -BackgroundColor $BKColor
-                Write-Host
+                Write-Host "Latest Gallery Image in use for"$LatestPolicy.DisplayName"="$LatestW11M365.DisplayName -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
+                Write-Host -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
+                Write-Host "No chages made" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
+                Write-Host -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
                 }
             Else
                 {
-                Write-host "Updating"$LatestPolicy.DisplayName"to"$LatestW11M365.Displayname
+                Write-host "Updating"$LatestPolicy.DisplayName"to"$LatestW11M365.Displayname -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
                 Update-MgDeviceManagementVirtualEndpointProvisioningPolicy -CloudPcProvisioningPolicyId $LatestPolicy.Id -ImageDisplayName $LatestW11M365.DisplayName -ImageId $LatestW11M365.Id
-                Write-host "...."
-                Write-host "...."
-                Write-host "...."
+                Write-host "...."-BackgroundColor $BKColorInfo -ForegroundColor $FGColor
+               
                 $ProvisionPolicysRaw2 = get-MgDeviceManagementVirtualEndpointprovisioningpolicy
 
-                Write-Host "Here are the updated Provisioning Policies"
+                Write-Host "Here are the updated Provisioning Policies" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
                 $provisionpolicysraw2 |Format-Table -property Displayname,provisioningType,enablesinglesignon,Imagedisplayname
                 }
             }
@@ -173,13 +172,16 @@ Function Get-ProvisionPolicyInfo
 
     If (-not $DemoPolicyFound)
         {
-        Write-host "Demo Policy not found" Red
+        Write-host "Demo Policy not found" -BackgroundColor $BKColorBad -ForegroundColor $FGColor
         }
 }
 
 #Display Preferences
 $FGColor = "white"
 $BKColor = "Blue"
+$BKColorBad = "Red"
+$BKColorGood = "Green"
+$BKColorinfo = "Blue"
 
 #Connect to CloudPC Graph API 
 Connect-MgGraph -Scopes "CloudPC.ReadWrite.All, User.Read.All","Group.Read.All, CloudPC.read.all"
@@ -187,7 +189,7 @@ Connect-MgGraph -Scopes "CloudPC.ReadWrite.All, User.Read.All","Group.Read.All, 
 Select-MgProfile Beta
 
 #Gathers the connection info, comment out the Clear-Host line below to see this info, helps with connectivity issues
-Write-host "Here is the connection information used:"
+Write-host "Here is the connection information used:" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
 Get-MgContext
 #Clear-Host
 
