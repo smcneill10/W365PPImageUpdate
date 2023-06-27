@@ -36,8 +36,8 @@ Function Get-CloudPCData
     If ($Selection1 -gt $counter) {Write-host ""; Write-host "Out of band selection, please select again" -backgroundcolor Red; Get-CloudPCData}
     $choosenCPC = $selection1 -1
 
-    $FGColor = "white"
-    $BKColor = "Green"
+    #$FGColor = "white"
+    #$BKColor = "Green"
 
     #   Write-Host "Select" $Counter "to manage this Cloud PC Management"  -ForegroundColor $FGColor 
         Write-Host "" -BackgroundColor $BKColor
@@ -67,7 +67,7 @@ Function Get-CloudPCData
     2 { Start-MgDeviceManagementVirtualEndpointCloudPcOff -CloudPCId $CPCs[$choosenCPC].Id }
     2 {write-host 'Stopping ' $CPCs[$choosenCPC].DisplayName}
     2 {Get-CloudPCData}
-    3 { Restart-MgDeviceManagementVirtualEndpointCloudPc -CloudPcId $CPCs[$choosenCPC].Id }
+    3 {Restart-MgDeviceManagementVirtualEndpointCloudPc -CloudPcId $CPCs[$choosenCPC].Id }
     3 {write-host 'Re-Starting ' $CPCs[$choosenCPC].DisplayName}
     3 {Get-CloudPCData}
     4 {Get-CPCConnectHistory $CPCs[$choosenCPC].DisplayName $CPCs[$choosenCPC].Id}
@@ -103,7 +103,7 @@ Function Get-CPCConnectHistory ($CPCCHDisplay, $CPCCHID)
         }
     Else
         {
-            Write-host "" -backgroundcolor Red; Write-host "No connection history available" -backgroundcolor Red
+            Write-host "" -backgroundcolor Red; Write-host "No connection history available" -backgroundcolor $bkcolor
         }
     
     [int]$exportConHis = Read-Host "Enter 1 to Export; 2 to Continue"
@@ -153,7 +153,7 @@ Function Get-ProvisionPolicyInfo
                 
                 Write-Host "Latest Gallery Image in use for"$LatestPolicy.DisplayName"="$LatestW11M365.DisplayName
                 Write-Host
-                Write-Host "No chages made"
+                Write-Host "No chages made" -BackgroundColor $BKColor
                 Write-Host
                 }
             Else
@@ -173,10 +173,13 @@ Function Get-ProvisionPolicyInfo
 
     If (-not $DemoPolicyFound)
         {
-        Write-host "Demo Policy not found"
+        Write-host "Demo Policy not found" Red
         }
 }
 
+#Display Preferences
+$FGColor = "white"
+$BKColor = "Blue"
 
 #Connect to CloudPC Graph API 
 Connect-MgGraph -Scopes "CloudPC.ReadWrite.All, User.Read.All","Group.Read.All, CloudPC.read.all"
@@ -184,11 +187,13 @@ Connect-MgGraph -Scopes "CloudPC.ReadWrite.All, User.Read.All","Group.Read.All, 
 Select-MgProfile Beta
 
 #Gathers the connection info, comment out the Clear-Host line below to see this info, helps with connectivity issues
+Write-host "Here is the connection information used:"
 Get-MgContext
 #Clear-Host
 
 #call the Provisioning Policy Info Fuction
 Get-ProvisionPolicyInfo
+
 #Call the Manage_cpc function   
 Get-CloudPCData
 
