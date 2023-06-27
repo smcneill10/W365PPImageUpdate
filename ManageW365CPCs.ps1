@@ -185,8 +185,10 @@ Select-MgProfile Beta
 
 #Gathers the connection info, comment out the Clear-Host line below to see this info, helps with connectivity issues
 Get-MgContext
-Clear-Host
+#Clear-Host
 
+#call the Provisioning Policy Info Fuction
+Get-ProvisionPolicyInfo
 #Call the Manage_cpc function   
 Get-CloudPCData
 
