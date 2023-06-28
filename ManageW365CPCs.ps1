@@ -175,6 +175,7 @@ Function Get-ProvisionPolicyInfo
         Write-host "Demo Policy not found" -BackgroundColor $BKColorBad -ForegroundColor $FGColor
         }
 }
+#write a function to get the username of the user
 
 #Display Preferences
 $FGColor = "white"
