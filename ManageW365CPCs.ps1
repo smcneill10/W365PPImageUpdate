@@ -36,10 +36,6 @@ Function Get-CloudPCData
     If ($Selection1 -gt $counter) {Write-host ""; Write-host "Out of band selection, please select again" -ForegroundColor $FGColor -backgroundcolor $BKColorBad; Get-CloudPCData}
     $choosenCPC = $selection1 -1
 
-    #$FGColor = "white"
-    #$BKColor = "Green"
-
-    #   Write-Host "Select" $Counter "to manage this Cloud PC Management"  -ForegroundColor $FGColor 
         Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
         Write-Host "Cloud PC Display Name:" $CPCs[$choosenCPC].DisplayName -ForegroundColor $FGColor -BackgroundColor $BKColor
         Write-Host "Cloud PC User Name:" $CPCs[$choosenCPC].UserPrincipalName -ForegroundColor $FGColor -BackgroundColor $BKColor
@@ -54,9 +50,23 @@ Function Get-CloudPCData
         {Write-Host "Cloud PC Power State:"$CPCs[$choosenCPC].PowerState -ForegroundColor $FGColor -BackgroundColor $BKColor}
         Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
 
+        # output of options 1=start, 2=stop, 3=restart, 4=connectivity history, 5=back, 6=exit in a table format
+        #Write-Host "Select 1 for START, 2 for STOP, 3 for RESTART, 4 for CONNECT HISTORY, 5 for BACK, 6 to EXIT " -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
+        Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
+        Write-Host "Optional Action Menu" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
+        Write-Host "1" "Start" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
+        Write-Host "2" "Stop" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
+        Write-Host "3" "Restart" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
+        Write-Host "4" "Connectivity History" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
+        Write-Host "5" "Back" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
+        Write-Host "6" "Exit" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
+        Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
 
-    # https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.devicemanagement.actions/restart-mgdevicemanagementvirtualendpointcloudpc?view=graph-powershell-beta
-    [int]$Selection2 = Read-Host "Enter 1 for START, Enter 2 for STOP, Enter 3 for RESTART, Enter 4 for CONNECT HISTORY, Enter 5 for BACK, Enter 6 to EXIT "
+        
+
+
+
+    [int]$Selection2 = Read-Host "Enter your selection"
 
     Switch ($Selection2)
     {
@@ -84,7 +94,7 @@ Function Get-CloudPCData
 #Function for getting the Connectivity History
 Function Get-CPCConnectHistory ($CPCCHDisplay, $CPCCHID)
 {
-    write-host 'Connectivity test for ' $CPCCHDisplay 
+    $ConnectHistoryInstance = 'Connectivity test for ' + $CPCCHDisplay 
     #Get the users temp folder location
     $TempFolder = $env:TEMP
     $TempFolder
@@ -94,6 +104,7 @@ Function Get-CPCConnectHistory ($CPCCHDisplay, $CPCCHID)
     if ($ConnectHistory.Length -gt 1) 
         {
             Out-File -FilePath ($TempFolder + "\connectlogclean.txt") 
+            $ConnectHistoryInstance | Out-file -FilePath ($TempFolder + "\connectlogclean.txt") -append
             foreach ($line in Get-Content ($TempFolder + "\connectlog.txt"))
             {
                 If ($Line -match "deviceHealthCheck")
