@@ -124,7 +124,19 @@ Function Get-CPCConnectHistory ($CPCCHDisplay, $CPCCHID)
     [int]$exportConHis = Read-Host "Enter 1 to Export; 2 to Continue"
     if ($exportConHis -eq 1) 
         {
-            $SaveHistoryPath = read-host "enter location for file export (user must have access, c:\location\filename.txt)"
+            $SaveHistoryPathLocation = $env:USERPROFILE + "\onedrive\documents\CloudPCConnectHistory2.txt"
+            $SaveHistoryPathLocation 
+            Write-host "Enter 1 for default export location"  $SaveHistoryPathLocation
+            Write-host "Enter 2 for custom export location (user must have access, c:\location\filename.txt)" 
+            $SaveHistoryPath = read-host "enter 1 for default location or 2 custome location "
+            if ($SaveHistoryPath -eq 1) 
+                {
+                    $SaveHistoryPath = $SaveHistoryPathLocation
+                }
+            else 
+                {
+                    $SaveHistoryPath = read-host "Enter the full path and filename"
+                }
             $Connectionhistoryexport = get-content ($TempFolder + "\connectlogclean.txt")
             Write-host ""
             
