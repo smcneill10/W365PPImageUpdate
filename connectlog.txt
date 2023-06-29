@@ -1,226 +1,96 @@
 
-EventDateTime         EventName                           EventResult EventType         Message
--------------         ---------                           ----------- ---------         -------
-6/27/2023 7:06:02 PM  DomainJoinedCheck                   success     deviceHealthCheck 
-6/27/2023 7:06:02 PM  DomainTrustCheck                    success     deviceHealthCheck 
-6/27/2023 7:06:02 PM  SxSStackListenerCheck               success     deviceHealthCheck 
-6/27/2023 7:06:02 PM  MonitoringAgentCheck                success     deviceHealthCheck 
-6/27/2023 7:06:02 PM  MetaDataServiceCheck                success     deviceHealthCheck 
-6/27/2023 7:06:02 PM  AppAttachHealthCheck                success     deviceHealthCheck 
-6/26/2023 12:02:12 PM Unknown Error                       failure     userConnection    
-6/26/2023 12:02:10 PM Connection Started                  success     userConnection    
-6/26/2023 12:01:59 PM Unknown Error                       failure     userConnection    
-6/26/2023 12:01:56 PM Connection Started                  success     userConnection    
-6/26/2023 12:01:42 PM Unknown Error                       failure     userConnection    
-6/26/2023 12:01:40 PM Connection Started                  success     userConnection    
-6/26/2023 12:12:59 AM DomainJoinedCheck                   success     deviceHealthCheck 
-6/26/2023 12:12:59 AM DomainTrustCheck                    success     deviceHealthCheck 
-6/26/2023 12:12:59 AM SxSStackListenerCheck               success     deviceHealthCheck 
-6/26/2023 12:12:59 AM MonitoringAgentCheck                success     deviceHealthCheck 
-6/26/2023 12:12:59 AM MetaDataServiceCheck                success     deviceHealthCheck 
-6/26/2023 12:12:59 AM AppAttachHealthCheck                success     deviceHealthCheck 
-6/25/2023 11:42:26 PM DomainJoinedCheck                   success     deviceHealthCheck 
-6/25/2023 11:42:26 PM DomainTrustCheck                    success     deviceHealthCheck 
-6/25/2023 11:42:26 PM SxSStackListenerCheck               success     deviceHealthCheck 
-6/25/2023 11:42:26 PM MonitoringAgentCheck                success     deviceHealthCheck 
-6/25/2023 11:42:26 PM MetaDataServiceCheck                success     deviceHealthCheck 
-6/25/2023 11:42:26 PM AppAttachHealthCheck                success     deviceHealthCheck 
-6/25/2023 11:33:40 PM ConnectionFailedClientDisconnect    failure     userConnection    The user's network connection to their Cloud PC was unexpectedly interrupted.
-6/25/2023 11:11:52 PM DomainJoinedCheck                   success     deviceHealthCheck 
-6/25/2023 11:11:52 PM DomainTrustCheck                    success     deviceHealthCheck 
-6/25/2023 11:11:52 PM SxSStackListenerCheck               success     deviceHealthCheck 
-6/25/2023 11:11:52 PM MonitoringAgentCheck                success     deviceHealthCheck 
-6/25/2023 11:11:52 PM MetaDataServiceCheck                success     deviceHealthCheck 
-6/25/2023 11:11:52 PM AppAttachHealthCheck                success     deviceHealthCheck 
-6/25/2023 10:41:17 PM DomainJoinedCheck                   success     deviceHealthCheck 
-6/25/2023 10:41:17 PM DomainTrustCheck                    success     deviceHealthCheck 
-6/25/2023 10:41:17 PM SxSStackListenerCheck               success     deviceHealthCheck 
-6/25/2023 10:41:17 PM MonitoringAgentCheck                success     deviceHealthCheck 
-6/25/2023 10:41:17 PM MetaDataServiceCheck                success     deviceHealthCheck 
-6/25/2023 10:41:17 PM AppAttachHealthCheck                success     deviceHealthCheck 
-6/25/2023 12:46:03 AM DomainJoinedCheck                   success     deviceHealthCheck 
-6/25/2023 12:46:03 AM DomainTrustCheck                    success     deviceHealthCheck 
-6/25/2023 12:46:03 AM SxSStackListenerCheck               success     deviceHealthCheck 
-6/25/2023 12:46:03 AM MonitoringAgentCheck                success     deviceHealthCheck 
-6/25/2023 12:46:03 AM MetaDataServiceCheck                success     deviceHealthCheck 
-6/25/2023 12:46:03 AM AppAttachHealthCheck                success     deviceHealthCheck 
-6/25/2023 12:14:25 AM DomainJoinedCheck                   success     deviceHealthCheck 
-6/25/2023 12:14:25 AM DomainTrustCheck                    success     deviceHealthCheck 
-6/25/2023 12:14:25 AM SxSStackListenerCheck               success     deviceHealthCheck 
-6/25/2023 12:14:25 AM MonitoringAgentCheck                success     deviceHealthCheck 
-6/25/2023 12:14:25 AM MetaDataServiceCheck                success     deviceHealthCheck 
-6/25/2023 12:14:25 AM AppAttachHealthCheck                success     deviceHealthCheck 
-6/25/2023 12:14:00 AM Connection Started                  success     userConnection    
-6/25/2023 12:13:55 AM ConnectionInitiationSequenceTimeout failure     userConnection    The user connection to their Cloud PC failed due to a timeout waiting for the connection initiation sequence to complete. This may …
-6/25/2023 12:12:22 AM Connection Started                  success     userConnection    
-6/24/2023 11:44:22 PM DomainJoinedCheck                   success     deviceHealthCheck 
-6/24/2023 11:44:22 PM DomainTrustCheck                    success     deviceHealthCheck 
-6/24/2023 11:44:22 PM SxSStackListenerCheck               success     deviceHealthCheck 
-6/24/2023 11:44:22 PM MonitoringAgentCheck                success     deviceHealthCheck 
-6/24/2023 11:44:22 PM MetaDataServiceCheck                success     deviceHealthCheck 
-6/24/2023 11:44:22 PM AppAttachHealthCheck                success     deviceHealthCheck 
-6/24/2023 11:14:19 PM DomainJoinedCheck                   success     deviceHealthCheck 
-6/24/2023 11:14:19 PM DomainTrustCheck                    success     deviceHealthCheck 
-6/24/2023 11:14:19 PM SxSStackListenerCheck               success     deviceHealthCheck 
-6/24/2023 11:14:19 PM MonitoringAgentCheck                success     deviceHealthCheck 
-6/24/2023 11:14:19 PM MetaDataServiceCheck                success     deviceHealthCheck 
-6/24/2023 11:14:19 PM AppAttachHealthCheck                success     deviceHealthCheck 
-6/24/2023 3:46:10 AM  DomainJoinedCheck                   success     deviceHealthCheck 
-6/24/2023 3:46:10 AM  DomainTrustCheck                    success     deviceHealthCheck 
-6/24/2023 3:46:10 AM  SxSStackListenerCheck               success     deviceHealthCheck 
-6/24/2023 3:46:10 AM  MonitoringAgentCheck                success     deviceHealthCheck 
-6/24/2023 3:46:10 AM  MetaDataServiceCheck                success     deviceHealthCheck 
-6/24/2023 3:46:10 AM  AppAttachHealthCheck                success     deviceHealthCheck 
-6/24/2023 3:15:37 AM  DomainJoinedCheck                   success     deviceHealthCheck 
-6/24/2023 3:15:37 AM  DomainTrustCheck                    success     deviceHealthCheck 
-6/24/2023 3:15:37 AM  SxSStackListenerCheck               success     deviceHealthCheck 
-6/24/2023 3:15:37 AM  MonitoringAgentCheck                success     deviceHealthCheck 
-6/24/2023 3:15:37 AM  MetaDataServiceCheck                success     deviceHealthCheck 
-6/24/2023 3:15:37 AM  AppAttachHealthCheck                success     deviceHealthCheck 
-6/24/2023 2:47:57 AM  ConnectionFailedClientDisconnect    failure     userConnection    The user's network connection to their Cloud PC was unexpectedly interrupted.
-6/24/2023 2:44:33 AM  DomainJoinedCheck                   success     deviceHealthCheck 
-6/24/2023 2:44:33 AM  DomainTrustCheck                    success     deviceHealthCheck 
-6/24/2023 2:44:33 AM  SxSStackListenerCheck               success     deviceHealthCheck 
-6/24/2023 2:44:33 AM  MonitoringAgentCheck                success     deviceHealthCheck 
-6/24/2023 2:44:33 AM  MetaDataServiceCheck                success     deviceHealthCheck 
-6/24/2023 2:44:33 AM  AppAttachHealthCheck                success     deviceHealthCheck 
-6/24/2023 2:14:27 AM  DomainJoinedCheck                   success     deviceHealthCheck 
-6/24/2023 2:14:27 AM  DomainTrustCheck                    success     deviceHealthCheck 
-6/24/2023 2:14:27 AM  SxSStackListenerCheck               success     deviceHealthCheck 
-6/24/2023 2:14:27 AM  MonitoringAgentCheck                success     deviceHealthCheck 
-6/24/2023 2:14:27 AM  MetaDataServiceCheck                success     deviceHealthCheck 
-6/24/2023 2:14:27 AM  AppAttachHealthCheck                success     deviceHealthCheck 
-6/23/2023 2:25:36 PM  Connection Started                  success     userConnection    
-6/23/2023 12:07:48 AM DomainJoinedCheck                   success     deviceHealthCheck 
-6/23/2023 12:07:48 AM DomainTrustCheck                    success     deviceHealthCheck 
-6/23/2023 12:07:48 AM SxSStackListenerCheck               success     deviceHealthCheck 
-6/23/2023 12:07:48 AM MonitoringAgentCheck                success     deviceHealthCheck 
-6/23/2023 12:07:48 AM MetaDataServiceCheck                success     deviceHealthCheck 
-6/23/2023 12:07:48 AM AppAttachHealthCheck                success     deviceHealthCheck 
-6/22/2023 11:36:44 PM DomainJoinedCheck                   success     deviceHealthCheck 
-6/22/2023 11:36:44 PM DomainTrustCheck                    success     deviceHealthCheck 
-6/22/2023 11:36:44 PM SxSStackListenerCheck               success     deviceHealthCheck 
-6/22/2023 11:36:44 PM MonitoringAgentCheck                success     deviceHealthCheck 
-6/22/2023 11:36:44 PM MetaDataServiceCheck                success     deviceHealthCheck 
-6/22/2023 11:36:44 PM AppAttachHealthCheck                success     deviceHealthCheck 
-6/22/2023 11:25:07 PM ConnectionFailedClientDisconnect    failure     userConnection    The user's network connection to their Cloud PC was unexpectedly interrupted.
-6/22/2023 11:05:40 PM DomainJoinedCheck                   success     deviceHealthCheck 
-6/22/2023 11:05:40 PM DomainTrustCheck                    success     deviceHealthCheck 
-6/22/2023 11:05:40 PM SxSStackListenerCheck               success     deviceHealthCheck 
-6/22/2023 11:05:40 PM MonitoringAgentCheck                success     deviceHealthCheck 
-6/22/2023 11:05:40 PM MetaDataServiceCheck                success     deviceHealthCheck 
-6/22/2023 11:05:40 PM AppAttachHealthCheck                success     deviceHealthCheck 
-6/22/2023 10:36:04 PM DomainJoinedCheck                   success     deviceHealthCheck 
-6/22/2023 10:36:04 PM DomainTrustCheck                    success     deviceHealthCheck 
-6/22/2023 10:36:04 PM SxSStackListenerCheck               success     deviceHealthCheck 
-6/22/2023 10:36:04 PM MonitoringAgentCheck                success     deviceHealthCheck 
-6/22/2023 10:36:04 PM MetaDataServiceCheck                success     deviceHealthCheck 
-6/22/2023 10:36:04 PM AppAttachHealthCheck                success     deviceHealthCheck 
-6/22/2023 3:39:19 AM  Connection Started                  success     userConnection    
-6/21/2023 11:43:15 PM DomainJoinedCheck                   success     deviceHealthCheck 
-6/21/2023 11:43:15 PM DomainTrustCheck                    success     deviceHealthCheck 
-6/21/2023 11:43:15 PM SxSStackListenerCheck               success     deviceHealthCheck 
-6/21/2023 11:43:15 PM MonitoringAgentCheck                success     deviceHealthCheck 
-6/21/2023 11:43:15 PM MetaDataServiceCheck                success     deviceHealthCheck 
-6/21/2023 11:43:15 PM AppAttachHealthCheck                success     deviceHealthCheck 
-6/21/2023 11:12:41 PM DomainJoinedCheck                   success     deviceHealthCheck 
-6/21/2023 11:12:41 PM DomainTrustCheck                    success     deviceHealthCheck 
-6/21/2023 11:12:41 PM SxSStackListenerCheck               success     deviceHealthCheck 
-6/21/2023 11:12:41 PM MonitoringAgentCheck                success     deviceHealthCheck 
-6/21/2023 11:12:41 PM MetaDataServiceCheck                success     deviceHealthCheck 
-6/21/2023 11:12:41 PM AppAttachHealthCheck                success     deviceHealthCheck 
-6/21/2023 11:11:39 PM ConnectionFailedClientDisconnect    failure     userConnection    The user's network connection to their Cloud PC was unexpectedly interrupted.
-6/21/2023 10:41:07 PM DomainJoinedCheck                   success     deviceHealthCheck 
-6/21/2023 10:41:07 PM DomainTrustCheck                    success     deviceHealthCheck 
-6/21/2023 10:41:07 PM SxSStackListenerCheck               success     deviceHealthCheck 
-6/21/2023 10:41:07 PM MonitoringAgentCheck                success     deviceHealthCheck 
-6/21/2023 10:41:07 PM MetaDataServiceCheck                success     deviceHealthCheck 
-6/21/2023 10:41:07 PM AppAttachHealthCheck                success     deviceHealthCheck 
-6/21/2023 9:39:30 PM  Connection Started                  success     userConnection    
-6/20/2023 9:37:16 PM  Connection Finished                 success     userConnection    
-6/20/2023 4:20:33 PM  Connection Started                  success     userConnection    
-6/19/2023 8:18:05 PM  Connection Finished                 success     userConnection    
-6/19/2023 8:02:59 PM  Connection Started                  success     userConnection    
-6/19/2023 6:18:17 PM  Connection Finished                 success     userConnection    
-6/19/2023 6:08:28 PM  Connection Started                  success     userConnection    
-6/17/2023 11:30:05 PM Connection Finished                 success     userConnection    
-6/17/2023 11:29:27 PM Connection Started                  success     userConnection    
-6/17/2023 2:03:14 AM  DomainJoinedCheck                   success     deviceHealthCheck 
-6/17/2023 2:03:14 AM  DomainTrustCheck                    success     deviceHealthCheck 
-6/17/2023 2:03:14 AM  SxSStackListenerCheck               success     deviceHealthCheck 
-6/17/2023 2:03:14 AM  MonitoringAgentCheck                success     deviceHealthCheck 
-6/17/2023 2:03:14 AM  MetaDataServiceCheck                success     deviceHealthCheck 
-6/17/2023 2:03:14 AM  AppAttachHealthCheck                success     deviceHealthCheck 
-6/17/2023 2:03:13 AM  Health Check                        failure     deviceHealthCheck Your device is not running or the network is not connected to Internet. Please run Troubleshooter for further investigation. If the…
-6/17/2023 12:54:58 AM DomainJoinedCheck                   success     deviceHealthCheck 
-6/17/2023 12:54:58 AM DomainTrustCheck                    success     deviceHealthCheck 
-6/17/2023 12:54:58 AM SxSStackListenerCheck               success     deviceHealthCheck 
-6/17/2023 12:54:58 AM MonitoringAgentCheck                success     deviceHealthCheck 
-6/17/2023 12:54:58 AM MetaDataServiceCheck                success     deviceHealthCheck 
-6/17/2023 12:54:58 AM AppAttachHealthCheck                success     deviceHealthCheck 
-6/17/2023 12:54:32 AM Health Check                        failure     deviceHealthCheck Your device is not running or the network is not connected to Internet. Please run Troubleshooter for further investigation. If the…
-6/16/2023 10:28:47 PM Connection Finished                 success     userConnection    
-6/16/2023 10:28:23 PM Connection Started                  success     userConnection    
-6/16/2023 12:33:20 AM Connection Finished                 success     userConnection    
-6/16/2023 12:00:01 AM DomainJoinedCheck                   success     deviceHealthCheck 
-6/16/2023 12:00:01 AM DomainTrustCheck                    success     deviceHealthCheck 
-6/16/2023 12:00:01 AM SxSStackListenerCheck               success     deviceHealthCheck 
-6/16/2023 12:00:01 AM MonitoringAgentCheck                success     deviceHealthCheck 
-6/16/2023 12:00:01 AM MetaDataServiceCheck                success     deviceHealthCheck 
-6/16/2023 12:00:01 AM AppAttachHealthCheck                success     deviceHealthCheck 
-6/15/2023 11:40:57 PM Connection Started                  success     userConnection    
-6/15/2023 11:29:56 PM DomainJoinedCheck                   success     deviceHealthCheck 
-6/15/2023 11:29:56 PM DomainTrustCheck                    success     deviceHealthCheck 
-6/15/2023 11:29:56 PM SxSStackListenerCheck               success     deviceHealthCheck 
-6/15/2023 11:29:56 PM MonitoringAgentCheck                success     deviceHealthCheck 
-6/15/2023 11:29:56 PM MetaDataServiceCheck                success     deviceHealthCheck 
-6/15/2023 11:29:56 PM AppAttachHealthCheck                success     deviceHealthCheck 
-6/15/2023 11:25:25 PM DomainJoinedCheck                   success     deviceHealthCheck 
-6/15/2023 11:25:25 PM DomainTrustCheck                    success     deviceHealthCheck 
-6/15/2023 11:25:25 PM SxSStackListenerCheck               success     deviceHealthCheck 
-6/15/2023 11:25:25 PM MonitoringAgentCheck                success     deviceHealthCheck 
-6/15/2023 11:25:25 PM MetaDataServiceCheck                success     deviceHealthCheck 
-6/15/2023 11:25:25 PM AppAttachHealthCheck                success     deviceHealthCheck 
-6/15/2023 11:24:47 PM ServerShutdown                      failure     userConnection    Connection closed due to server shutdown.
-6/15/2023 11:13:32 PM DomainJoinedCheck                   success     deviceHealthCheck 
-6/15/2023 11:13:32 PM DomainTrustCheck                    success     deviceHealthCheck 
-6/15/2023 11:13:32 PM SxSStackListenerCheck               success     deviceHealthCheck 
-6/15/2023 11:13:32 PM MonitoringAgentCheck                success     deviceHealthCheck 
-6/15/2023 11:13:32 PM MetaDataServiceCheck                success     deviceHealthCheck 
-6/15/2023 11:13:32 PM AppAttachHealthCheck                success     deviceHealthCheck 
-6/15/2023 10:46:21 PM Connection Started                  success     userConnection    
-6/15/2023 10:43:27 PM DomainJoinedCheck                   success     deviceHealthCheck 
-6/15/2023 10:43:27 PM DomainTrustCheck                    success     deviceHealthCheck 
-6/15/2023 10:43:27 PM SxSStackListenerCheck               success     deviceHealthCheck 
-6/15/2023 10:43:27 PM MonitoringAgentCheck                success     deviceHealthCheck 
-6/15/2023 10:43:27 PM MetaDataServiceCheck                success     deviceHealthCheck 
-6/15/2023 10:43:27 PM AppAttachHealthCheck                success     deviceHealthCheck 
-6/15/2023 10:41:56 PM DomainJoinedCheck                   success     deviceHealthCheck 
-6/15/2023 10:41:56 PM DomainTrustCheck                    success     deviceHealthCheck 
-6/15/2023 10:41:56 PM SxSStackListenerCheck               success     deviceHealthCheck 
-6/15/2023 10:41:56 PM MonitoringAgentCheck                success     deviceHealthCheck 
-6/15/2023 10:41:56 PM MetaDataServiceCheck                success     deviceHealthCheck 
-6/15/2023 10:41:56 PM AppAttachHealthCheck                success     deviceHealthCheck 
-6/15/2023 10:41:13 PM ServerShutdown                      failure     userConnection    Connection closed due to server shutdown.
-6/15/2023 10:24:01 PM DomainJoinedCheck                   success     deviceHealthCheck 
-6/15/2023 10:24:01 PM DomainTrustCheck                    success     deviceHealthCheck 
-6/15/2023 10:24:01 PM SxSStackListenerCheck               success     deviceHealthCheck 
-6/15/2023 10:24:01 PM MonitoringAgentCheck                success     deviceHealthCheck 
-6/15/2023 10:24:01 PM MetaDataServiceCheck                success     deviceHealthCheck 
-6/15/2023 10:24:01 PM AppAttachHealthCheck                success     deviceHealthCheck 
-6/15/2023 9:52:53 PM  DomainJoinedCheck                   success     deviceHealthCheck 
-6/15/2023 9:52:53 PM  DomainTrustCheck                    success     deviceHealthCheck 
-6/15/2023 9:52:53 PM  SxSStackListenerCheck               success     deviceHealthCheck 
-6/15/2023 9:52:53 PM  MonitoringAgentCheck                success     deviceHealthCheck 
-6/15/2023 9:52:53 PM  MetaDataServiceCheck                success     deviceHealthCheck 
-6/15/2023 9:52:53 PM  AppAttachHealthCheck                success     deviceHealthCheck 
-6/15/2023 8:24:08 PM  Connection Started                  success     userConnection    
-6/15/2023 8:24:06 PM  Connection Finished                 success     userConnection    
-6/14/2023 12:36:02 AM Connection Started                  success     userConnection    
-6/13/2023 7:48:35 PM  DomainJoinedCheck                   success     deviceHealthCheck 
-6/13/2023 7:48:35 PM  DomainTrustCheck                    success     deviceHealthCheck 
-6/13/2023 7:48:35 PM  SxSStackListenerCheck               success     deviceHealthCheck 
-6/13/2023 7:48:35 PM  MonitoringAgentCheck                success     deviceHealthCheck 
-6/13/2023 7:48:35 PM  MetaDataServiceCheck                success     deviceHealthCheck 
-6/13/2023 7:48:35 PM  AppAttachHealthCheck                success     deviceHealthCheck 
+EventDateTime         EventName                        EventResult EventType         Message
+-------------         ---------                        ----------- ---------         -------
+6/24/2023 5:03:14 AM  DomainJoinedCheck                success     deviceHealthCheck 
+6/24/2023 5:03:14 AM  DomainTrustCheck                 success     deviceHealthCheck 
+6/24/2023 5:03:14 AM  SxSStackListenerCheck            success     deviceHealthCheck 
+6/24/2023 5:03:14 AM  MonitoringAgentCheck             success     deviceHealthCheck 
+6/24/2023 5:03:14 AM  MetaDataServiceCheck             success     deviceHealthCheck 
+6/24/2023 5:03:14 AM  AppAttachHealthCheck             success     deviceHealthCheck 
+6/24/2023 3:31:04 AM  DomainJoinedCheck                success     deviceHealthCheck 
+6/24/2023 3:31:04 AM  DomainTrustCheck                 success     deviceHealthCheck 
+6/24/2023 3:31:04 AM  SxSStackListenerCheck            success     deviceHealthCheck 
+6/24/2023 3:31:04 AM  MonitoringAgentCheck             success     deviceHealthCheck 
+6/24/2023 3:31:04 AM  MetaDataServiceCheck             success     deviceHealthCheck 
+6/24/2023 3:31:04 AM  AppAttachHealthCheck             success     deviceHealthCheck 
+6/24/2023 2:59:30 AM  DomainJoinedCheck                success     deviceHealthCheck 
+6/24/2023 2:59:30 AM  DomainTrustCheck                 success     deviceHealthCheck 
+6/24/2023 2:59:30 AM  SxSStackListenerCheck            success     deviceHealthCheck 
+6/24/2023 2:59:30 AM  MonitoringAgentCheck             success     deviceHealthCheck 
+6/24/2023 2:59:30 AM  MetaDataServiceCheck             success     deviceHealthCheck 
+6/24/2023 2:59:30 AM  AppAttachHealthCheck             success     deviceHealthCheck 
+6/24/2023 2:47:58 AM  ConnectionFailedClientDisconnect failure     userConnection    The user's network connection to their Cloud PC was unexpectedly in…
+6/24/2023 2:28:53 AM  DomainJoinedCheck                success     deviceHealthCheck 
+6/24/2023 2:28:53 AM  DomainTrustCheck                 success     deviceHealthCheck 
+6/24/2023 2:28:53 AM  SxSStackListenerCheck            success     deviceHealthCheck 
+6/24/2023 2:28:53 AM  MonitoringAgentCheck             success     deviceHealthCheck 
+6/24/2023 2:28:53 AM  MetaDataServiceCheck             success     deviceHealthCheck 
+6/24/2023 2:28:53 AM  AppAttachHealthCheck             success     deviceHealthCheck 
+6/24/2023 1:57:47 AM  DomainJoinedCheck                success     deviceHealthCheck 
+6/24/2023 1:57:47 AM  DomainTrustCheck                 success     deviceHealthCheck 
+6/24/2023 1:57:47 AM  SxSStackListenerCheck            success     deviceHealthCheck 
+6/24/2023 1:57:47 AM  MonitoringAgentCheck             success     deviceHealthCheck 
+6/24/2023 1:57:47 AM  MetaDataServiceCheck             success     deviceHealthCheck 
+6/24/2023 1:57:47 AM  AppAttachHealthCheck             success     deviceHealthCheck 
+6/23/2023 2:44:37 PM  DomainJoinedCheck                success     deviceHealthCheck 
+6/23/2023 2:44:37 PM  DomainTrustCheck                 success     deviceHealthCheck 
+6/23/2023 2:44:37 PM  SxSStackListenerCheck            success     deviceHealthCheck 
+6/23/2023 2:44:37 PM  MonitoringAgentCheck             success     deviceHealthCheck 
+6/23/2023 2:44:37 PM  MetaDataServiceCheck             success     deviceHealthCheck 
+6/23/2023 2:44:37 PM  AppAttachHealthCheck             success     deviceHealthCheck 
+6/23/2023 2:14:08 PM  Connection Started               success     userConnection    
+6/23/2023 2:13:29 PM  DomainJoinedCheck                success     deviceHealthCheck 
+6/23/2023 2:13:29 PM  DomainTrustCheck                 success     deviceHealthCheck 
+6/23/2023 2:13:29 PM  SxSStackListenerCheck            success     deviceHealthCheck 
+6/23/2023 2:13:29 PM  MonitoringAgentCheck             success     deviceHealthCheck 
+6/23/2023 2:13:29 PM  MetaDataServiceCheck             success     deviceHealthCheck 
+6/23/2023 2:13:29 PM  AppAttachHealthCheck             success     deviceHealthCheck 
+6/23/2023 2:12:59 PM  DomainJoinedCheck                success     deviceHealthCheck 
+6/23/2023 2:12:59 PM  DomainTrustCheck                 success     deviceHealthCheck 
+6/23/2023 2:12:59 PM  SxSStackListenerCheck            success     deviceHealthCheck 
+6/23/2023 2:12:59 PM  MonitoringAgentCheck             success     deviceHealthCheck 
+6/23/2023 2:12:59 PM  MetaDataServiceCheck             success     deviceHealthCheck 
+6/23/2023 2:12:59 PM  AppAttachHealthCheck             success     deviceHealthCheck 
+6/23/2023 2:12:08 PM  Unknown Error                    failure     userConnection    
+6/23/2023 2:12:06 PM  Connection Started               success     userConnection    
+6/23/2023 2:10:57 PM  Unknown Error                    failure     userConnection    
+6/23/2023 2:10:55 PM  Connection Started               success     userConnection    
+6/23/2023 7:39:49 AM  DomainJoinedCheck                success     deviceHealthCheck 
+6/23/2023 7:39:49 AM  DomainTrustCheck                 success     deviceHealthCheck 
+6/23/2023 7:39:49 AM  SxSStackListenerCheck            success     deviceHealthCheck 
+6/23/2023 7:39:49 AM  MonitoringAgentCheck             success     deviceHealthCheck 
+6/23/2023 7:39:49 AM  MetaDataServiceCheck             success     deviceHealthCheck 
+6/23/2023 7:39:49 AM  AppAttachHealthCheck             success     deviceHealthCheck 
+6/23/2023 7:09:45 AM  DomainJoinedCheck                success     deviceHealthCheck 
+6/23/2023 7:09:45 AM  DomainTrustCheck                 success     deviceHealthCheck 
+6/23/2023 7:09:45 AM  SxSStackListenerCheck            success     deviceHealthCheck 
+6/23/2023 7:09:45 AM  MonitoringAgentCheck             success     deviceHealthCheck 
+6/23/2023 7:09:45 AM  MetaDataServiceCheck             success     deviceHealthCheck 
+6/23/2023 7:09:45 AM  AppAttachHealthCheck             success     deviceHealthCheck 
+6/23/2023 7:05:42 AM  DomainJoinedCheck                success     deviceHealthCheck 
+6/23/2023 7:05:42 AM  DomainTrustCheck                 success     deviceHealthCheck 
+6/23/2023 7:05:42 AM  SxSStackListenerCheck            success     deviceHealthCheck 
+6/23/2023 7:05:42 AM  MonitoringAgentCheck             success     deviceHealthCheck 
+6/23/2023 7:05:42 AM  MetaDataServiceCheck             success     deviceHealthCheck 
+6/23/2023 7:05:42 AM  AppAttachHealthCheck             success     deviceHealthCheck 
+6/23/2023 7:04:46 AM  ServerReboot                     failure     userConnection    Connection closed due to server reboot.
+6/23/2023 6:42:16 AM  DomainJoinedCheck                success     deviceHealthCheck 
+6/23/2023 6:42:16 AM  DomainTrustCheck                 success     deviceHealthCheck 
+6/23/2023 6:42:16 AM  SxSStackListenerCheck            success     deviceHealthCheck 
+6/23/2023 6:42:16 AM  MonitoringAgentCheck             success     deviceHealthCheck 
+6/23/2023 6:42:16 AM  MetaDataServiceCheck             success     deviceHealthCheck 
+6/23/2023 6:42:16 AM  AppAttachHealthCheck             success     deviceHealthCheck 
+6/23/2023 6:11:09 AM  DomainJoinedCheck                success     deviceHealthCheck 
+6/23/2023 6:11:09 AM  DomainTrustCheck                 success     deviceHealthCheck 
+6/23/2023 6:11:09 AM  SxSStackListenerCheck            success     deviceHealthCheck 
+6/23/2023 6:11:09 AM  MonitoringAgentCheck             success     deviceHealthCheck 
+6/23/2023 6:11:09 AM  MetaDataServiceCheck             success     deviceHealthCheck 
+6/23/2023 6:11:09 AM  AppAttachHealthCheck             success     deviceHealthCheck 
+6/23/2023 2:32:09 AM  Connection Started               success     userConnection    
+6/23/2023 12:36:30 AM DomainJoinedCheck                success     deviceHealthCheck 
+6/23/2023 12:36:30 AM DomainTrustCheck                 success     deviceHealthCheck 
+6/23/2023 12:36:30 AM SxSStackListenerCheck            success     deviceHealthCheck 
+6/23/2023 12:36:30 AM MonitoringAgentCheck             success     deviceHealthCheck 
+6/23/2023 12:36:30 AM MetaDataServiceCheck             success     deviceHealthCheck 
+6/23/2023 12:36:30 AM AppAttachHealthCheck             success     deviceHealthCheck 
 

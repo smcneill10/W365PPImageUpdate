@@ -85,21 +85,25 @@ Function Get-CloudPCData
 Function Get-CPCConnectHistory ($CPCCHDisplay, $CPCCHID)
 {
     write-host 'Connectivity test for ' $CPCCHDisplay 
-    Get-MgDeviceManagementVirtualEndpointCloudPcConnectivityHistory  -CloudPcId $CPCCHID |out-file -filepath .\connectlog.txt 
-    $ConnectHistory = Get-Item .\connectlog.txt
+    #Get the users temp folder location
+    $TempFolder = $env:TEMP
+    $TempFolder
+    
+    Get-MgDeviceManagementVirtualEndpointCloudPcConnectivityHistory  -CloudPcId $CPCCHID |out-file -filepath ($TempFolder + "\connectlog.txt") 
+    $ConnectHistory = Get-Item ($TempFolder + "\connectlog.txt")
     if ($ConnectHistory.Length -gt 1) 
         {
-            Out-File -FilePath .\connectlogclean.txt 
-            foreach ($line in Get-Content .\connectlog.txt)
+            Out-File -FilePath ($TempFolder + "\connectlogclean.txt") 
+            foreach ($line in Get-Content ($TempFolder + "\connectlog.txt"))
             {
                 If ($Line -match "deviceHealthCheck")
                 {}
                 Else
                 {
-                    $line |Out-file -FilePath .\connectlogclean.txt -append
+                    $line |Out-file -FilePath ($TempFolder + "\connectlogclean.txt") -append
                 }
             }
-            get-content -path .\connectlogclean.txt    
+            get-content -path ($TempFolder + "\connectlogclean.txt")    
         }
     Else
         {
@@ -110,7 +114,7 @@ Function Get-CPCConnectHistory ($CPCCHDisplay, $CPCCHID)
     if ($exportConHis -eq 1) 
         {
             $SaveHistoryPath = read-host "enter location for file export (user must have access, c:\location\filename.txt)"
-            $Connectionhistoryexport = get-content .\connectlogclean.txt
+            $Connectionhistoryexport = get-content ($TempFolder + "\connectlogclean.txt")
             Write-host ""
             
             $Connectionhistoryexport | Out-File -FilePath $SaveHistoryPath
@@ -194,11 +198,19 @@ Write-host "Here is the connection information used:" -BackgroundColor $BKColorI
 Get-MgContext
 #Clear-Host
 
+
+
+# Write a function to get the username of the logged in user
+ $username = Get-ChildItem env:username
+ $username = $username.value
+ $username
+
 #call the Provisioning Policy Info Fuction
 Get-ProvisionPolicyInfo
 
 #Call the Manage_cpc function   
 Get-CloudPCData
+
 
 
 
