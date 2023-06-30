@@ -212,6 +212,8 @@ Function Get-ProvisionPolicyInfo
         {
         Write-host "Demo Policy not found" -BackgroundColor $BKColorBad -ForegroundColor $FGColor
         }
+#Call th Get-CloudPCData function
+Get-CloudPCData
 }
 
 
@@ -226,11 +228,19 @@ Write-host "Here is the connection information used:" -BackgroundColor $BKColorI
 Get-MgContext
 Clear-Host
 
-#call the Provisioning Policy Info Fuction
-Get-ProvisionPolicyInfo
+$ProvPolicies = Read-host "Enter 1 to first check Provisioning Policies; 2 to continue"
+if ($ProvPolicies -eq 1) 
+    {
+    #Call the Provisioning Policy Info Fuction
+    Get-ProvisionPolicyInfo
+    }
+else 
+    {
+    #Call the Manage_cpc function 
+    Get-CloudPCData
+    }
 
-#Call the Manage_cpc function   
-Get-CloudPCData
+
 
 
 
