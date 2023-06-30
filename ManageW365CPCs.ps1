@@ -5,6 +5,14 @@
 
 #MS Graph API permissions for Cloud PCs https://learn.microsoft.com/en-us/graph/permissions-reference#cloud-pc-permissions
 
+
+#Display Preferences
+$FGColor = "white"
+$BKColor = "Black"
+$BKColorBad = "Red"
+$BKColorGood = "Green"
+$BKColorinfo = "black"
+
 #Function to gather CPC info and allow for mgmt
 Function Get-CloudPCData  
     {
@@ -12,6 +20,7 @@ Function Get-CloudPCData
     $CPCs = Get-MgDeviceManagementVirtualEndpointCloudPc -Property DisplayName, UserPrincipalName, ManagedDeviceName, ID, Status, ProvisioningPolicyId, ProvisioningPolicyName, ImageDisplayName, ServicePlanName, PowerState
 
     $Counter = 0
+    # cycle thru all CPCs and display info
     foreach ($CPC in $CPCs)
     {
         $counter++
@@ -30,12 +39,14 @@ Function Get-CloudPCData
   
     Write-host "Select 0 to exit" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
     Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
-  
+
+    #get the selection for detailed info for CPC
     [int]$Selection1 = Read-Host "enter number for more info and to Manage a CPC " 
     If ($Selection1 -eq 0) {Write-Host "Thanks and See Ya" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor; Break} 
     If ($Selection1 -gt $counter) {Write-host ""; Write-host "Out of band selection, please select again" -ForegroundColor $FGColor -backgroundcolor $BKColorBad; Get-CloudPCData}
     $choosenCPC = $selection1 -1
 
+        #Display detailed info for selected CPC
         Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
         Write-Host "Cloud PC Display Name:" $CPCs[$choosenCPC].DisplayName -ForegroundColor $FGColor -BackgroundColor $BKColor
         Write-Host "Cloud PC User Name:" $CPCs[$choosenCPC].UserPrincipalName -ForegroundColor $FGColor -BackgroundColor $BKColor
@@ -50,8 +61,7 @@ Function Get-CloudPCData
         {Write-Host "Cloud PC Power State:"$CPCs[$choosenCPC].PowerState -ForegroundColor $FGColor -BackgroundColor $BKColor}
         Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
 
-        # output of options 1=start, 2=stop, 3=restart, 4=connectivity history, 5=back, 6=exit in a table format
-        #Write-Host "Select 1 for START, 2 for STOP, 3 for RESTART, 4 for CONNECT HISTORY, 5 for BACK, 6 to EXIT " -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
+       #Display optional actions for selected CPC
         Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
         Write-Host "Optional Action Menu" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
         Write-Host "1" "Start" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
@@ -67,10 +77,9 @@ Function Get-CloudPCData
 
 
     [int]$Selection2 = Read-Host "Enter your selection"
-
+    #Switch for the optional actions
     Switch ($Selection2)
     {
-    #1 { Start-MgDeviceManagementVirtualEndpointCloudPcOn -CloudPCId $CPCs[$choosenCPC].Id }
     1 {Start-MgDeviceManagementVirtualEndpointCloudPcOn -CloudPCId $CPCs[$choosenCPC].Id}
     1 {write-host 'Starting'  $CPCs[$choosenCPC].DisplayName}
     1 {Get-CloudPCData}
@@ -80,7 +89,7 @@ Function Get-CloudPCData
     3 {Restart-MgDeviceManagementVirtualEndpointCloudPc -CloudPcId $CPCs[$choosenCPC].Id }
     3 {write-host 'Re-Starting ' $CPCs[$choosenCPC].DisplayName}
     3 {Get-CloudPCData}
-    4 {Get-CPCConnectHistory $CPCs[$choosenCPC].DisplayName $CPCs[$choosenCPC].Id}
+    4 {Get-CPCConnectHistory $CPCs[$choosenCPC].DisplayName $CPCs[$choosenCPC].Id $CPCs[$choosenCPC].ManagedDeviceName}
     #4 {Clear-Host}
     4 {Get-CloudPCData}
     5 {Clear-host}
@@ -92,17 +101,17 @@ Function Get-CloudPCData
 }
 
 #Function for getting the Connectivity History
-Function Get-CPCConnectHistory ($CPCCHDisplay, $CPCCHID)
+Function Get-CPCConnectHistory ($CPCCHDisplay, $CPCCHID, $CPCCHNBName)
 {
-    $ConnectHistoryInstance = 'Connectivity test for ' + $CPCCHDisplay 
+    $ConnectHistoryInstance = 'Connectivity test for ' + $CPCCHDisplay + ' with ID ' + $CPCCHID
     #Get the users temp folder location
     $TempFolder = $env:TEMP
-    $TempFolder
-    
+    #Get the connection history and store in txt file in user temp folder
     Get-MgDeviceManagementVirtualEndpointCloudPcConnectivityHistory  -CloudPcId $CPCCHID |out-file -filepath ($TempFolder + "\connectlog.txt") 
     $ConnectHistory = Get-Item ($TempFolder + "\connectlog.txt")
     if ($ConnectHistory.Length -gt 1) 
         {
+            #output the connection history to the screen removing the deviceHealthCheck lines
             Out-File -FilePath ($TempFolder + "\connectlogclean.txt") 
             $ConnectHistoryInstance | Out-file -FilePath ($TempFolder + "\connectlogclean.txt") -append
             foreach ($line in Get-Content ($TempFolder + "\connectlog.txt"))
@@ -120,11 +129,13 @@ Function Get-CPCConnectHistory ($CPCCHDisplay, $CPCCHID)
         {
             Write-host "" -backgroundcolor Red; Write-host "No connection history available" -backgroundcolor $bkcolor
         }
-    
+    #Ask if the user wants to export the connection history
     [int]$exportConHis = Read-Host "Enter 1 to Export; 2 to Continue"
     if ($exportConHis -eq 1) 
         {
-            $SaveHistoryPathLocation = $env:USERPROFILE + "\onedrive\documents\CloudPCConnectHistory2.txt"
+            #export to default location or custom location
+            $Datetime = Get-Date -Format "dddd MM-dd-yyyy HH:MM"
+            $SaveHistoryPathLocation = $env:USERPROFILE + '\onedrive\documents\' + $CPCCHNBName + ' '+ $Datetime + '.txt'
             $SaveHistoryPathLocation 
             Write-host "Enter 1 for default export location"  $SaveHistoryPathLocation
             Write-host "Enter 2 for custom export location (user must have access, c:\location\filename.txt)" 
@@ -159,7 +170,7 @@ Function Get-ProvisionPolicyInfo
 
     # Will need to create logic to determine newest Image for Win 10 and 11 and both versions
     #This version just assumes location of latest versions is array
-    #$LatestW11OS = $GalleryImagesRaw[0]
+    
     $LatestW11M365 = $GalleryImagesRaw[1]
 
     #Get Provisioning Policies
@@ -202,14 +213,8 @@ Function Get-ProvisionPolicyInfo
         Write-host "Demo Policy not found" -BackgroundColor $BKColorBad -ForegroundColor $FGColor
         }
 }
-#write a function to get the username of the user
 
-#Display Preferences
-$FGColor = "white"
-$BKColor = "Black"
-$BKColorBad = "Red"
-$BKColorGood = "Green"
-$BKColorinfo = "black"
+
 
 #Connect to CloudPC Graph API 
 Connect-MgGraph -Scopes "CloudPC.ReadWrite.All, User.Read.All","Group.Read.All, CloudPC.read.all"
@@ -219,14 +224,7 @@ Select-MgProfile Beta
 #Gathers the connection info, comment out the Clear-Host line below to see this info, helps with connectivity issues
 Write-host "Here is the connection information used:" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
 Get-MgContext
-#Clear-Host
-
-
-
-# Write a function to get the username of the logged in user
- $username = Get-ChildItem env:username
- $username = $username.value
- $username
+Clear-Host
 
 #call the Provisioning Policy Info Fuction
 Get-ProvisionPolicyInfo
