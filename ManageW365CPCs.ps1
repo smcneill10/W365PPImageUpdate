@@ -16,57 +16,56 @@ $BKColorinfo = "black"
 #Function to gather CPC info and allow for mgmt
 Function Get-CloudPCData  
 {
-    write-host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
-    $CPCs = Get-MgDeviceManagementVirtualEndpointCloudPc -Property DisplayName, UserPrincipalName, ManagedDeviceName, ID, Status, ProvisioningPolicyId, ProvisioningPolicyName, ImageDisplayName, ServicePlanName, PowerState
+    #write-host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
+    #$CPCs = Get-MgDeviceManagementVirtualEndpointCloudPc -Property DisplayName, UserPrincipalName, ManagedDeviceName, ID, Status, ProvisioningPolicyId, ProvisioningPolicyName, ImageDisplayName, ServicePlanName, PowerState
        
-    #$SelectMethod = Read-Host "Select 1 to display all Cloud PCs or 2 to search for a Cloud PC"
-    $SelectMethod = Read-host "enter 1 - working on search functionality to be an option"
-    Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
-    If ($SelectMethod -eq 1) 
-    {
-        $Counter = 0
-        # cycle thru all CPCs and display info
-        foreach ($CPC in $CPCs)
-        {
-            $counter++
-            $RunningStatus = "Running"
-            If ($null -ne $CPC.PowerState)
-                {
-                    $runningStatus = $CPC.Powerstate
+    # #$SelectMethod = Read-Host "Select 1 to display all Cloud PCs or 2 to search for a Cloud PC"
+    # $SelectMethod = Read-host "enter 1 - working on search functionality to be an option"
+    # Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
+    # If ($SelectMethod -eq 1) 
+    # {
+    #     $Counter = 0
+    #     # cycle thru all CPCs and display info
+    #     foreach ($CPC in $CPCs)
+    #     {
+    #         $counter++
+    #         $RunningStatus = "Running"
+    #         If ($null -ne $CPC.PowerState)
+    #             {
+    #                 $runningStatus = $CPC.Powerstate
 
-                    Write-Host "Select" $Counter "for" $CPC.ManagedDeviceName "    " $runningStatus -BackgroundColor $BKColorInfo
-                }
-            Else
-                {
-                    write-Host "Select" $Counter "for" $CPC.ManagedDeviceName  -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
-                }
-        }
+    #                 Write-Host "Select" $Counter "for" $CPC.ManagedDeviceName "    " $runningStatus -BackgroundColor $BKColorInfo
+    #             }
+    #         Else
+    #             {
+    #                 write-Host "Select" $Counter "for" $CPC.ManagedDeviceName  -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
+    #             }
+    #     }
     
-        Write-host "Select 0 to exit" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
-        Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
+    #     Write-host "Select 0 to exit" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
+    #     Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
 
-        #get the selection for detailed info for CPC
-        [int]$Selection1 = Read-Host "enter number for more info and to Manage a CPC " 
-        If ($Selection1 -eq 0) {Write-Host "Thanks and See Ya" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor; Break} 
-        If ($Selection1 -gt $counter) {Write-host ""; Write-host "Out of band selection, please select again" -ForegroundColor $FGColor -backgroundcolor $BKColorBad; Get-CloudPCData}
-    }
-    else 
-        {
+    #     #get the selection for detailed info for CPC
+    #     [int]$Selection1 = Read-Host "enter number for more info and to Manage a CPC " 
+    #     If ($Selection1 -eq 0) {Write-Host "Thanks and See Ya" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor; Break} 
+    #     If ($Selection1 -gt $counter) {Write-host ""; Write-host "Out of band selection, please select again" -ForegroundColor $FGColor -backgroundcolor $BKColorBad; Get-CloudPCData}
+    # }
+    # else 
+    #   {
             #search for a CPC
-            #working on this section, feel free to test by selecting 2 above in logic
             #create a searchable hashtable of all Windows 365 Cloud PCs
             $CPCs = Get-MgDeviceManagementVirtualEndpointCloudPc -Property DisplayName, UserPrincipalName, ManagedDeviceName, ID, Status, ProvisioningPolicyId, ProvisioningPolicyName, ImageDisplayName, ServicePlanName, PowerState
             $CPCs = $CPCs | Select-Object DisplayName, UserPrincipalName, ManagedDeviceName, ID, Status, ProvisioningPolicyId, ProvisioningPolicyName, ImageDisplayName, ServicePlanName, PowerState
             $CPCs = $CPCs | Sort-Object -Property DisplayName
             $CPCs = $CPCs | Out-GridView -PassThru -Title "Select a Cloud PC to manage"
             $CPCs = $CPCs | Select-Object DisplayName, UserPrincipalName, ManagedDeviceName, ID, Status, ProvisioningPolicyId, ProvisioningPolicyName, ImageDisplayName, ServicePlanName, PowerState
-
+        #}
            
-        }    
+
     
         $choosenCPC = $selection1 -1
         #Create an output using gridview to show the properties of the selected CPC
-        $CPCs[$choosenCPC] | Out-GridView -Title "Cloud PC Info" -PassThru
+        #$CPCs[$choosenCPC] | Out-GridView -Title "Cloud PC Info" -PassThru
     
 
         #Display detailed info for selected CPC
@@ -239,8 +238,6 @@ Function Get-ProvisionPolicyInfo
 Get-CloudPCData
 }
 
-
-
 #Connect to CloudPC Graph API 
 Connect-MgGraph -Scopes "CloudPC.ReadWrite.All, User.Read.All","Group.Read.All, CloudPC.read.all"
 # Set Graph API to Beta
@@ -262,9 +259,4 @@ else
     #Call the Manage_cpc function 
     Get-CloudPCData
     }
-
-
-
-
-
 
