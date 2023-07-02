@@ -15,41 +15,53 @@ $BKColorinfo = "black"
 
 #Function to gather CPC info and allow for mgmt
 Function Get-CloudPCData  
-{
-    #search for a CPC
-    #create a searchable hashtable of all Windows 365 Cloud PCs
+    {
+    write-host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
     $CPCs = Get-MgDeviceManagementVirtualEndpointCloudPc -Property DisplayName, UserPrincipalName, ManagedDeviceName, ID, Status, ProvisioningPolicyId, ProvisioningPolicyName, ImageDisplayName, ServicePlanName, PowerState
-    $CPCs = $CPCs | Select-Object DisplayName, UserPrincipalName, ManagedDeviceName, ID, Status, ProvisioningPolicyId, ProvisioningPolicyName, ImageDisplayName, ServicePlanName, PowerState
-    $CPCs = $CPCs | Sort-Object -Property DisplayName
-    $CPCs = $CPCs | Out-GridView -PassThru -Title "Select a Cloud PC to manage"
-    $CPCs = $CPCs | Select-Object DisplayName, UserPrincipalName, ManagedDeviceName, ID, Status, ProvisioningPolicyId, ProvisioningPolicyName, ImageDisplayName, ServicePlanName, PowerState
-           
 
-    
-        $choosenCPC = $selection1 -1
-        #Create an output using gridview to show the properties of the selected CPC
-        $CPCs[$choosenCPC] | Out-GridView -Title "Cloud PC Info" -PassThru
-    
+    $Counter = 0
+    # cycle thru all CPCs and display info
+    foreach ($CPC in $CPCs)
+    {
+        $counter++
+        $RunningStatus = "Running"
+        If ($null -ne $CPC.PowerState)
+            {
+                $runningStatus = $CPC.Powerstate
+
+                Write-Host "Select" $Counter "for" $CPC.ManagedDeviceName "    " $runningStatus -BackgroundColor $BKColorInfo
+            }
+        Else
+            {
+                write-Host "Select" $Counter "for" $CPC.ManagedDeviceName  -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
+            }
+    }
+  
+    Write-host "Select 0 to exit" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
+    Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
+
+    #get the selection for detailed info for CPC
+    [int]$Selection1 = Read-Host "enter number for more info and to Manage a CPC " 
+    If ($Selection1 -eq 0) {Write-Host "Thanks and See Ya" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor; Break} 
+    If ($Selection1 -gt $counter) {Write-host ""; Write-host "Out of band selection, please select again" -ForegroundColor $FGColor -backgroundcolor $BKColorBad; Get-CloudPCData}
+    $choosenCPC = $selection1 -1
 
         #Display detailed info for selected CPC
-        # Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
-        # Write-Host "Cloud PC Display Name:" $CPCs[$choosenCPC].DisplayName -ForegroundColor $FGColor -BackgroundColor $BKColor
-        # Write-Host "Cloud PC User Name:" $CPCs[$choosenCPC].UserPrincipalName -ForegroundColor $FGColor -BackgroundColor $BKColor
-        # write-host "CLoud PC NETBIOS Name:" $CPCs[$choosenCPC].ManagedDeviceName -ForegroundColor $FGColor -BackgroundColor $BKColor
-        # Write-Host "Cloud PC ID:"  $CPCs[$choosenCPC].Id -ForegroundColor $FGColor -BackgroundColor $BKColor
-        # Write-Host "Cloud PC Status:"  $CPCs[$choosenCPC].Status -ForegroundColor $FGColor -BackgroundColor $BKColor
-        # Write-Host "Cloud PC Provisioning Policy ID:"$CPCs[$choosenCPC].ProvisioningPolicyId -ForegroundColor $FGColor -BackgroundColor $BKColor
-        # Write-Host "Cloud PC Provisioning Policy Name:"$CPCs[$choosenCPC].ProvisioningPolicyName -ForegroundColor $FGColor -BackgroundColor $BKColor
-        # Write-Host "Cloud PC Provisioning Policy Image Name:"$CPCs[$choosenCPC].ImageDisplayName -ForegroundColor $FGColor -BackgroundColor $BKColor
-        # Write-Host "Cloud PC Sevice Plan Name:"$CPCs[$choosenCPC].ServicePlanName -ForegroundColor $FGColor -BackgroundColor $BKColor
-        # If ($null -ne $CPCs[$choosenCPC].PowerState )
-        # {Write-Host "Cloud PC Power State:"$CPCs[$choosenCPC].PowerState -ForegroundColor $FGColor -BackgroundColor $BKColor}
-        # Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
+        Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
+        Write-Host "Cloud PC Display Name:" $CPCs[$choosenCPC].DisplayName -ForegroundColor $FGColor -BackgroundColor $BKColor
+        Write-Host "Cloud PC User Name:" $CPCs[$choosenCPC].UserPrincipalName -ForegroundColor $FGColor -BackgroundColor $BKColor
+        write-host "CLoud PC NETBIOS Name:" $CPCs[$choosenCPC].ManagedDeviceName -ForegroundColor $FGColor -BackgroundColor $BKColor
+        Write-Host "Cloud PC ID:"  $CPCs[$choosenCPC].Id -ForegroundColor $FGColor -BackgroundColor $BKColor
+        Write-Host "Cloud PC Status:"  $CPCs[$choosenCPC].Status -ForegroundColor $FGColor -BackgroundColor $BKColor
+        Write-Host "Cloud PC Provisioning Policy ID:"$CPCs[$choosenCPC].ProvisioningPolicyId -ForegroundColor $FGColor -BackgroundColor $BKColor
+        Write-Host "Cloud PC Provisioning Policy Name:"$CPCs[$choosenCPC].ProvisioningPolicyName -ForegroundColor $FGColor -BackgroundColor $BKColor
+        Write-Host "Cloud PC Provisioning Policy Image Name:"$CPCs[$choosenCPC].ImageDisplayName -ForegroundColor $FGColor -BackgroundColor $BKColor
+        Write-Host "Cloud PC Sevice Plan Name:"$CPCs[$choosenCPC].ServicePlanName -ForegroundColor $FGColor -BackgroundColor $BKColor
+        If ($null -ne $CPCs[$choosenCPC].PowerState )
+        {Write-Host "Cloud PC Power State:"$CPCs[$choosenCPC].PowerState -ForegroundColor $FGColor -BackgroundColor $BKColor}
+        Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
 
        #Display optional actions for selected CPC
-
-        #Using out-gridview to display the optional actions
-
         Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
         Write-Host "Optional Action Menu" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
         Write-Host "1" "Start" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
@@ -60,9 +72,7 @@ Function Get-CloudPCData
         Write-Host "6" "Exit" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
         Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
 
-    #Create a GUI interface for the optional actions
-    #Write a menu and get the selection from the user using out-gridview
-    
+        
 
 
 
@@ -202,9 +212,9 @@ Function Get-ProvisionPolicyInfo
         {
         Write-host "Demo Policy not found" -BackgroundColor $BKColorBad -ForegroundColor $FGColor
         }
-#Call th Get-CloudPCData function
-Get-CloudPCData
 }
+
+
 
 #Connect to CloudPC Graph API 
 Connect-MgGraph -Scopes "CloudPC.ReadWrite.All, User.Read.All","Group.Read.All, CloudPC.read.all"
@@ -216,15 +226,11 @@ Write-host "Here is the connection information used:" -BackgroundColor $BKColorI
 Get-MgContext
 Clear-Host
 
-$ProvPolicies = Read-host "Enter 1 to first check Provisioning Policies; 2 to continue"
-if ($ProvPolicies -eq 1) 
-    {
-    #Call the Provisioning Policy Info Fuction
-    Get-ProvisionPolicyInfo
-    }
-else 
-    {
-    #Call the Manage_cpc function 
-    Get-CloudPCData
-    }
+#call the Provisioning Policy Info Fuction
+Get-ProvisionPolicyInfo
+
+#Call the Manage_cpc function   
+Get-CloudPCData
+
+
 
