@@ -18,23 +18,7 @@ Function Get-CloudPCData
 {
     write-host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
     $CPCs = Get-MgDeviceManagementVirtualEndpointCloudPc -Property DisplayName, UserPrincipalName, ManagedDeviceName, ID, Status, ProvisioningPolicyId, ProvisioningPolicyName, ImageDisplayName, ServicePlanName, PowerState
-    
-    #Create hashtable for the CPCs
-    #keyvalue = 0
-#     $CPCHashtable = [Ordered]@{}
-#     $CPCSSplit = $CPCs -split "'n"  
-#     ForEach ($Line in $CPCs)
-#         { 
-#         $line
-#         $el = $line.split(':') 
-#         $Key = $keyvalue
-#         $keyvalue++
-#         $CPCHashtable.$key = $el[1].trim()
-#         }
-
-# # Output your hashtable
-# $CPCHashtable
-    
+       
     #$SelectMethod = Read-Host "Select 1 to display all Cloud PCs or 2 to search for a Cloud PC"
     $SelectMethod = Read-host "enter 1 - working on search functionality to be an option"
     Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
@@ -68,11 +52,22 @@ Function Get-CloudPCData
     }
     else 
         {
-            $SearchString = Read-Host "Enter the Cloud PC name to search for"
-            $CPCs -eq $SearchString
+            #search for a CPC
+            #working on this section, feel free to test by selecting 2 above in logic
+            #create a searchable hashtable of all Windows 365 Cloud PCs
+            $CPCs = Get-MgDeviceManagementVirtualEndpointCloudPc -Property DisplayName, UserPrincipalName, ManagedDeviceName, ID, Status, ProvisioningPolicyId, ProvisioningPolicyName, ImageDisplayName, ServicePlanName, PowerState
+            $CPCs = $CPCs | Select-Object DisplayName, UserPrincipalName, ManagedDeviceName, ID, Status, ProvisioningPolicyId, ProvisioningPolicyName, ImageDisplayName, ServicePlanName, PowerState
+            $CPCs = $CPCs | Sort-Object -Property DisplayName
+            $CPCs = $CPCs | Out-GridView -PassThru -Title "Select a Cloud PC to manage"
+            $CPCs = $CPCs | Select-Object DisplayName, UserPrincipalName, ManagedDeviceName, ID, Status, ProvisioningPolicyId, ProvisioningPolicyName, ImageDisplayName, ServicePlanName, PowerState
+
+           
         }    
     
         $choosenCPC = $selection1 -1
+        #Create an output using gridview to show the properties of the selected CPC
+        $CPCs[$choosenCPC] | Out-GridView -Title "Cloud PC Info" -PassThru
+    
 
         #Display detailed info for selected CPC
         Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
