@@ -48,7 +48,8 @@ Function Get-CloudPCData
 
        #Display optional actions for selected CPC
 
-     
+        #Using out-gridview to display the optional actions
+
         Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
         Write-Host "Optional Action Menu" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
         Write-Host "1" "Start" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
@@ -59,7 +60,9 @@ Function Get-CloudPCData
         Write-Host "6" "Exit" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
         Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
 
-        
+    #Create a GUI interface for the optional actions
+    #Write a menu and get the selection from the user using out-gridview
+    
 
 
 
