@@ -134,7 +134,7 @@ Function Get-CPCConnectHistory ($CPCCHDisplay, $CPCCHID, $CPCCHNBName)
     if ($exportConHis -eq 1) 
         {
             #export to default location or custom location
-            $Datetime = Get-Date -Format "dddd MM-dd-yyyy HH:MM"
+            $Datetime = Get-Date -Format "dddd MM-dd-yyyy"
             $SaveHistoryPathLocation = $env:USERPROFILE + '\onedrive\documents\' + $CPCCHNBName + ' '+ $Datetime + '.txt'
             $SaveHistoryPathLocation 
             Write-host "Enter 1 for default export location"  $SaveHistoryPathLocation
