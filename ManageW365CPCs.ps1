@@ -37,6 +37,7 @@ Function Get-CloudPCData
         foreach ($line in Get-Content ($TempFolder + "\CPCInfo.txt"))
         {
             $lineSplit = $line -split ":"
+            Write-host $lineSplit[0] $lineSplit[1] -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
             $CPCHash.Add($lineSplit[0],$lineSplit[1])
         }
          
