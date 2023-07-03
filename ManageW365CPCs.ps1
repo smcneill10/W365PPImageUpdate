@@ -28,27 +28,20 @@ Function Get-CloudPCData
     
         $choosenCPC = $selection1 -1
         #Create an output using gridview to show the properties of the selected CPC
-        $CPCs[$choosenCPC] | Out-GridView -Title "Cloud PC Info" -PassThru
-    
+        $CPCs[$choosenCPC] | out-file -filepath ($TempFolder + "\CPCInfo.txt") 
+        #create hashtable of the selected CPC
+        $CPCHash =@{}
 
-        #Display detailed info for selected CPC
-        # Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
-        # Write-Host "Cloud PC Display Name:" $CPCs[$choosenCPC].DisplayName -ForegroundColor $FGColor -BackgroundColor $BKColor
-        # Write-Host "Cloud PC User Name:" $CPCs[$choosenCPC].UserPrincipalName -ForegroundColor $FGColor -BackgroundColor $BKColor
-        # write-host "CLoud PC NETBIOS Name:" $CPCs[$choosenCPC].ManagedDeviceName -ForegroundColor $FGColor -BackgroundColor $BKColor
-        # Write-Host "Cloud PC ID:"  $CPCs[$choosenCPC].Id -ForegroundColor $FGColor -BackgroundColor $BKColor
-        # Write-Host "Cloud PC Status:"  $CPCs[$choosenCPC].Status -ForegroundColor $FGColor -BackgroundColor $BKColor
-        # Write-Host "Cloud PC Provisioning Policy ID:"$CPCs[$choosenCPC].ProvisioningPolicyId -ForegroundColor $FGColor -BackgroundColor $BKColor
-        # Write-Host "Cloud PC Provisioning Policy Name:"$CPCs[$choosenCPC].ProvisioningPolicyName -ForegroundColor $FGColor -BackgroundColor $BKColor
-        # Write-Host "Cloud PC Provisioning Policy Image Name:"$CPCs[$choosenCPC].ImageDisplayName -ForegroundColor $FGColor -BackgroundColor $BKColor
-        # Write-Host "Cloud PC Sevice Plan Name:"$CPCs[$choosenCPC].ServicePlanName -ForegroundColor $FGColor -BackgroundColor $BKColor
-        # If ($null -ne $CPCs[$choosenCPC].PowerState )
-        # {Write-Host "Cloud PC Power State:"$CPCs[$choosenCPC].PowerState -ForegroundColor $FGColor -BackgroundColor $BKColor}
-        # Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
-
-       #Display optional actions for selected CPC
-
-        #Using out-gridview to display the optional actions
+        Out-File -FilePath ($TempFolder + "\CPCInfoClean.txt") 
+        $CPCs[$choosenCPC].DisplayName | Out-file -FilePath ($TempFolder + "\CPCInfoclean.txt") -append
+        foreach ($line in Get-Content ($TempFolder + "\CPCInfo.txt"))
+        {
+            $lineSplit = $line -split ":"
+            $CPCHash.Add($lineSplit[0],$lineSplit[1])
+        }
+         
+        $CPCHash | Out-GridView -PassThru -Title "Cloud PC Info"
+        
 
         Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
         Write-Host "Optional Action Menu" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
@@ -94,8 +87,7 @@ Function Get-CloudPCData
 Function Get-CPCConnectHistory ($CPCCHDisplay, $CPCCHID, $CPCCHNBName)
 {
     $ConnectHistoryInstance = 'Connectivity test for ' + $CPCCHDisplay + ' with ID ' + $CPCCHID
-    #Get the users temp folder location
-    $TempFolder = $env:TEMP
+
     #Get the connection history and store in txt file in user temp folder
     Get-MgDeviceManagementVirtualEndpointCloudPcConnectivityHistory  -CloudPcId $CPCCHID |out-file -filepath ($TempFolder + "\connectlog.txt") 
     $ConnectHistory = Get-Item ($TempFolder + "\connectlog.txt")
@@ -215,7 +207,8 @@ Select-MgProfile Beta
 Write-host "Here is the connection information used:" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
 Get-MgContext
 Clear-Host
-
+#Get the users temp folder location
+$TempFolder = $env:TEMP
 $ProvPolicies = Read-host "Enter 1 to first check Provisioning Policies; 2 to continue"
 if ($ProvPolicies -eq 1) 
     {
