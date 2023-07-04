@@ -29,11 +29,10 @@ Function Get-CloudPCData
         $choosenCPC = $selection1 -1
         #Create an output using gridview to show the properties of the selected CPC
         $CPCs[$choosenCPC] | out-file -filepath ($TempFolder + "\CPCInfo.txt") 
+
         #create hashtable of the selected CPC
         $CPCHash =@{}
 
-        Out-File -FilePath ($TempFolder + "\CPCInfoClean.txt") 
-        $CPCs[$choosenCPC].DisplayName | Out-file -FilePath ($TempFolder + "\CPCInfoclean.txt") -append
         foreach ($line in Get-Content ($TempFolder + "\CPCInfo.txt"))
         {
             $lineSplit = $line -split ":"
@@ -43,24 +42,19 @@ Function Get-CloudPCData
          
         $CPCHash | Out-GridView -PassThru -Title "Cloud PC Info"
         
+        #output the choices for the optional actions menu
+        $ActionsMenu = @{}
+        $ActionsMenu.Add("start", 1)
+        $ActionsMenu.Add("stop", 2)
+        $ActionsMenu.Add("restart", 3)
+        $ActionsMenu.Add("connectivity history", 4)
+        $ActionsMenu.Add("back", 5)
+        $ActionsMenu.Add("exit", 6)
+        $ActionsMenu | Out-GridView -PassThru -Title "Optional Actions"
 
-        Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
-        Write-Host "Optional Action Menu" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
-        Write-Host "1" "Start" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
-        Write-Host "2" "Stop" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
-        Write-Host "3" "Restart" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
-        Write-Host "4" "Connectivity History" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
-        Write-Host "5" "Back" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
-        Write-Host "6" "Exit" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
-        Write-Host "" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
-
-    #Create a GUI interface for the optional actions
-    #Write a menu and get the selection from the user using out-gridview
-    
-
-
-
-    [int]$Selection2 = Read-Host "Enter your selection"
+    #Ask for the optional action
+    #[int]$Selection2 = Read-Host "Enter your selection"
+    $Selection2 = $ActionsMenu[$Selection2]
     #Switch for the optional actions
     Switch ($Selection2)
     {
