@@ -54,9 +54,11 @@ Function Get-CloudPCData
 
     #Ask for the optional action
     #[int]$Selection2 = Read-Host "Enter your selection"
-    $Selection2 = $ActionsMenu[$Selection2]
+    $Selection3 = $ActionsMenu[$Selection2]
+    Write-Host $Selection3
+        Write-Host "Line 59"
     #Switch for the optional actions
-    Switch ($Selection2)
+    Switch ($Selection3)
     {
     1 {Start-MgDeviceManagementVirtualEndpointCloudPcOn -CloudPCId $CPCs[$choosenCPC].Id}
     1 {write-host 'Starting'  $CPCs[$choosenCPC].DisplayName}
