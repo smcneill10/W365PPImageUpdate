@@ -22,9 +22,6 @@ Function Get-CloudPCData
     $CPCs = $CPCs | Select-Object DisplayName, UserPrincipalName, ManagedDeviceName, ID, Status, ProvisioningPolicyId, ProvisioningPolicyName, ImageDisplayName, ServicePlanName, PowerState
     $CPCs = $CPCs | Sort-Object -Property DisplayName
     $CPCs = $CPCs | Out-GridView -PassThru -Title "Select a Cloud PC to manage"
-    $CPCs = $CPCs | Select-Object DisplayName, UserPrincipalName, ManagedDeviceName, ID, Status, ProvisioningPolicyId, ProvisioningPolicyName, ImageDisplayName, ServicePlanName, PowerState
-           
-
     
         $choosenCPC = $selection1 -1
         #Create an output using gridview to show the properties of the selected CPC
@@ -41,7 +38,7 @@ Function Get-CloudPCData
         }
          
         $CPCHash | Out-GridView -PassThru -Title "Cloud PC Info"
-        
+
         #output the choices for the optional actions menu
         $ActionsMenu = @{}
         $ActionsMenu.Add("start", 1)
@@ -54,8 +51,9 @@ Function Get-CloudPCData
 
     #Ask for the optional action
     #[int]$Selection2 = Read-Host "Enter your selection"
-    $Selection3 = $ActionsMenu[$Selection2]
-    Write-Host $Selection3
+    #$Selection3 = $ActionsMenu[$Selection2].value
+    Write-Host $Selection3.value
+    $ActionChoice = $Selection3.value
         Write-Host "Line 59"
     #Switch for the optional actions
     Switch ($Selection3)
@@ -206,7 +204,7 @@ Get-MgContext
 Clear-Host
 #Get the users temp folder location
 $TempFolder = $env:TEMP
-$ProvPolicies = Read-host "Enter 1 to first check Provisioning Policies; 2 to continue"
+#$ProvPolicies = Read-host "Enter 1 to first check Provisioning Policies; 2 to continue"
 if ($ProvPolicies -eq 1) 
     {
     #Call the Provisioning Policy Info Fuction
@@ -217,4 +215,6 @@ else
     #Call the Manage_cpc function 
     Get-CloudPCData
     }
+Get-CloudPCData
+
 
