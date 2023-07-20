@@ -218,13 +218,13 @@ Function Get-ProvisionPolicyInfo
 
 #Connect to CloudPC Graph API 
 Connect-MgGraph -Scopes "CloudPC.ReadWrite.All, User.Read.All","Group.Read.All, CloudPC.read.all"
-# Set Graph API to Beta
+#Set Graph API to Beta
 Select-MgProfile Beta
 
 #Gathers the connection info, comment out the Clear-Host line below to see this info, helps with connectivity issues
 Write-host "Here is the connection information used:" -BackgroundColor $BKColorInfo -ForegroundColor $FGColor
 Get-MgContext
-Clear-Host
+#Clear-Host
 
 #call the Provisioning Policy Info Fuction
 Get-ProvisionPolicyInfo
